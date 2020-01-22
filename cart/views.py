@@ -14,6 +14,7 @@ def cart_add(request, pk):
         form.save()
         cd = form.cleaned_data
         item = Item(type_tiket = type, name_person = cd['name_person'], surname_person = cd['surname_person'], date_start = cd['date_start'])
+        item.save()
         cart.add(item)
     else:
         form = CartAddItemForm(request.POST)
