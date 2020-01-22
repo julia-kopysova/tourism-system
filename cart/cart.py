@@ -16,10 +16,10 @@ class Cart(object):
 
     def add(self, item):
         item_id = str(item.id)
-        self.cart[item_id] = {'type_tiket': {'price': str(item.type_tiket.price),
-                                             'days':str(item.type_tiket.days),
-                                             'type':str(item.type_tiket.type)},
-                              #'price': str(item.type_tiket.price),
+        self.cart[item_id] = {'type_tiсket': {'price': str(item.type_ticket.price),
+                                             'days':str(item.type_ticket.days),
+                                             'type':str(item.type_ticket.type)},
+                              #'price': str(item.type_ticket.price),
                               'name_person':str(item.name_person),
                               'surname_person': str(item.surname_person),
                               'date_start': str(item.date_start)}
@@ -45,10 +45,10 @@ class Cart(object):
         for item in items:
             self.cart[str(item.id)]['item'] = item
         for i in self.cart.values(): #значения в словаре
-            i['type_tiket']['price'] = Decimal(i['type_tiket']['price'])
+            i['type_ticket']['price'] = Decimal(i['type_ticket']['price'])
             yield i #вернeт генератор
     def get_total_price(self):
-        return sum(Decimal(i['type_tiket']['price'])  for i in self.cart.values())
+        return sum(Decimal(i['type_ticket']['price'])  for i in self.cart.values())
     def clear(self):
     # remove cart from session
         del self.session[settings.CART_SESSION_ID]

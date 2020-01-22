@@ -4,18 +4,45 @@ from django.views.decorators.http import require_POST
 from polls.models import Type, Item
 from .cart import Cart
 from .forms import CartAddItemForm
+import logging, logging.config
+import sys
 
 @require_POST
 def cart_add(request, pk):
+    LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout,
+        }
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO'
+    }
+    }
+    logging.config.dictConfig(LOGGING)
+
     type = get_object_or_404(Type, pk=pk)
     cart = Cart(request)
     form = CartAddItemForm(request.POST)
+    logging.info('Outside')
+
     if form.is_valid():
-        form.save()
+        logging.info('Inside')
+
         cd = form.cleaned_data
-        item = Item(type_tiket = type, name_person = cd['name_person'], surname_person = cd['surname_person'], date_start = cd['date_start'])
+        item = Item(type_ticket = type, name_person = cd['name_person'], surname_person = cd['surname_person'], date_start = cd['date_start'])
+
+        logging.info(item.type_ticket)
+        logging.info(item.name_person)
+        logging.info(item.surname_person)
+        logging.info(item.date_start)
+
         item.save()
         cart.add(item)
     else:
+        logging.info('Else')
         form = CartAddItemForm(request.POST)
     return redirect('account')
