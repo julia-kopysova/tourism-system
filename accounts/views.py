@@ -11,7 +11,8 @@ from cart.cart import Cart
 from cart.forms import CartAddItemForm
 
 def own_account(request):
-    return render(request,'account.html')
+    cart = Cart(request)
+    return render(request,'account.html', {'cart': cart})
 
 def signup(response):
     if response.method == "POST":
