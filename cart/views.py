@@ -42,7 +42,14 @@ def cart_add(request, pk):
 
         item.save()
         cart.add(item)
+
     else:
         logging.info('Else')
         form = CartAddItemForm(request.POST)
+    return redirect('account')
+
+def cart_remove(request, pk):
+    cart = Cart(request)
+    item = get_object_or_404(Item, id=pk)
+    cart.remove(item)
     return redirect('account')
