@@ -68,20 +68,18 @@
               <div class = "title_Basket">Your basket</div>
 
 {% for item in cart %}
-{% with type=item.type_ticket%}
               <div class="Basket">
-              <div class = "close"><img src="{% static 'images/close.jpg' %}"  height="30"></div>
+              <a href=""><div class = "close"><img src="{% static 'images/close.jpg' %}"  height="30"></div></a>
               <div class = "ticket_basket">
-              <div class = "name_info_basket">{{type.type}}</div>
-               <div class="day">{{type.days}}</div>
+              <div class = "name_info_basket">{{item.type}}</div>
+               <div class="day">{{item.days}} Days</div>
             <div class="day"> {{item.name_person}} </div>
             <div class="day"> {{item.surname_person}} </div>
             <div class="day"> {{item.date_start}} </div>
-        <div class = "price">{{type.price}}</div>
+            <div class = "price">{{item.price}}</div>
               </div>
 
             </div>
-{% endwith %}
 {% endfor %}
 
 
