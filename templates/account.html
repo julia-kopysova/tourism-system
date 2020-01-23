@@ -69,7 +69,7 @@
 
 {% for item in cart %}
               <div class="Basket">
-              <a href=""><div class = "close"><img src="{% static 'images/close.jpg' %}"  height="30"></div></a>
+              <a href="{% url 'remove' item.id %}"><div class = "close"><img src="{% static 'images/close.jpg' %}"  height="30"></div></a>
               <div class = "ticket_basket">
               <div class = "name_info_basket">{{item.type}}</div>
                <div class="day">{{item.days}} Days</div>

@@ -50,6 +50,6 @@ def cart_add(request, pk):
 
 def cart_remove(request, pk):
     cart = Cart(request)
-    item = get_object_or_404(Item, id=pk)
+    item = get_object_or_404(Item, pk=pk)
     cart.remove(item)
     return redirect('account')

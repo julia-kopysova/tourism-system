@@ -35,7 +35,8 @@ class Cart(object):
 
     def add(self, item):
         item_id = str(item.id)
-        self.cart[item_id] = {'price': str(item.type_ticket.price),
+        self.cart[item_id] = { 'id': str(item.id),
+                              'price': str(item.type_ticket.price),
                               'days':str(item.type_ticket.days),
                               'type':str(item.type_ticket.type),
                               #'price': str(item.type_ticket.price),
