@@ -22,6 +22,9 @@ class PricesDatailView(DetailView):
     model = Type
     template_name = "detail.html"
 
+class GuidebookView(ListView):
+    model = Sight
+    template_name = "sight_list.html"
 
 class PricesDetail(FormMixin, DetailView):
     model = Type

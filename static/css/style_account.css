@@ -266,8 +266,11 @@ justify-content: center;
   font-size: 17px;
   color: #333333;
 }
-
-.name_account, .surname_account, .email_account{
+.email_account{
+	font-size: 15px;
+	color: #003366;
+}
+.name_account, .surname_account{
   font-size: 20px;
   color: #003366;
 }
@@ -435,7 +438,7 @@ justify-content: center;
       font-size: 11px;
   }
   .email_account{
-      font-size: 11px;
+      font-size: 9px;
   }
 
   h2{

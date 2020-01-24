@@ -25,7 +25,7 @@
       		 <nav>
               <a href="{% url 'howitworks' %}" class="nav__link">How it works</a>
               <a href="{% url 'prices' %}"  class="nav__link">Prices</a>
-              <a href="" class="nav__link">Guidebook</a>
+              <a href="{% url 'guidebook' %}" class="nav__link">Guidebook</a>
               <a href="{% url 'faq' %}"  class="nav__link">FAQ</a>
             </nav>
 	</div>
@@ -57,7 +57,7 @@
  <nav class = "nav">
     <a href="{% url 'howitworks' %}" class="nav__link">How it works</a>
     <a href="{% url 'prices' %}"class="nav__link">Prices</a>
-    <a href="" class="nav__link">Guidebook</a>
+    <a href="{% url 'guidebook' %}" class="nav__link">Guidebook</a>
     <a href="{% url 'faq' %}" class="nav__link">FAQ</a>
 
         {% if user.is_authenticated %}

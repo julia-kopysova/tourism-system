@@ -1,0 +1,236 @@
+html, body * { box-sizing: border-box; font-family: 'Muli',sans-serif;}
+
+.guide_all_image{
+  width: 270px;
+  margin-top: 15px;
+  margin-right: 25px;
+  margin-bottom: 15px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-guide1{
+  z-index: 2;
+  font-size: 90%;
+  color: #003366;
+  font-weight: bolder;
+}
+
+.text-guide1:hover{
+  z-index: 2;
+  color:#dddfe6;
+
+  transition: all 1.2;
+}
+
+.text_guide{
+width: 302px;
+height: 82.01px;
+display: flex;
+justify-content: center;
+align-items: center;
+  position: absolute;
+
+}
+
+
+.text_guide:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(204, 204, 204, 0.80);
+  transition: all 1.5s;
+
+}
+
+.text_guide:hover:before {
+  background: rgba(6, 64, 105, 0.8);
+  height: 250px;
+  transition: all 1.5s;
+}
+
+
+
+
+
+
+
+.section1{
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+
+}
+.img_attractions{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.guide_attract{
+  display: flex;
+align-items: center;
+justify-content:center;
+}
+
+
+h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  margin-top: 15px;
+  color: #003366;
+}
+
+.help{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.text3{
+  font-size: 70%;
+  color: #003366;
+  width: 20%;
+  display: flex;
+  text-align: justify;
+  margin-right: 25px;
+  flex-wrap: wrap;
+
+}
+.text1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+
+}
+
+
+.text{
+  background: #dddfe6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 400px;
+  width: 100%;
+  margin-top: 50px;
+    left: 0;
+}
+
+.kharkiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+
+}
+
+
+.video-cover{
+
+  width: 100%;
+  display: table;
+  margin-top: 30px;
+  min-height: 70vh;
+  background-size: cover;
+}
+
+
+.history-image{
+  box-shadow: 0px 8px 8px  rgb(80, 80, 80);
+  margin-right: 25px;
+}
+
+
+
+.image_group1{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.history{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bolder;
+}
+.guide_slogan{
+  display: flex;
+  text-align: center;
+  font-size: 15px;
+  width: 40%;
+  color: #003366;
+}
+
+@media screen and (max-width: 700px) and (min-width: 100px)
+{
+
+
+.guide_all_image{
+  width: 200px;
+  border-radius: 100px;
+  height: 200px;
+}
+
+.guide_slogan{
+  width: 100%;
+}
+
+h2{
+  font-size: 20px;
+  color: #003366; !important
+}
+.text{
+  display: none;
+}
+
+.history-image{
+  width: 100px;
+  height: 100px;
+}
+  .guide_all_image{
+flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 700px)
+{
+
+.text3{
+  font-size: 15px;
+  width: 60%;
+
+}
+
+
+.guide_slogan{
+  width: 60%;
+}
+
+
+.text{
+  height: 70%;
+}
+
+
+  .guide_all_image{
+flex-wrap: wrap;
+  }
+}

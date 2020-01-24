@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Guidebook{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style_guidebook.css' %}" />
+<div class="guide_attract">
+<section class= "section1">
+<div class = "img_attractions">
+
+ {%for sight in object_list %}
+ <a href="{{sight.get_absolute_url}}">
+  <div class = "guide_all_image">
+    <img src="{{sight.img.url}}" width = "400" height="250" >
+    <div class="text_guide">
+      <p class = "text-guide1">{{sight.name_sight}}</p>
+    </div>
+  </div>
+</a>
+{% endfor %}
+  </div>
+</section>
+
+</div>
+
+<section class = "text">
+  <div class = "history">Kharkiv<img src="{% static 'images/Line.png' %}"  alt="" width = "70" class="image_group1">Tourism<img src="{% static 'images/Line.png' %}"  alt="" width = "70" class="image_group1">History</div>
+<div class = "text1">
+  <div class = "text3"><p>The city of Kharkov is a center of historical and geographical area of Ukraine which has a settled name “Slobozjanshchina”.
+The area of modern Kharkov is more than 300 sq. km and its population is 1 mln 450 thousand people. The territory of the city is a hilly flatland with valleys, ravines, etc. The climate is moderately continental: annual average air temperature is +6,90, the coldest month in a year is January (-6,10), the warmest month is July (+20,50). People had started to settle at the territory of modern Kharkov in ancient times.</p></div>
+  <div class = "text3"><p>There are several versions of the appearance of the name of the city as “Kharkov”. Some of historians think that Kharkov is a transformed name from Sharukhan, the cumin capital which was located on these lands, the others connect it with the name of the leader of Ukrainian settlers Kharko (Chariton) in the middle of the XVII century. Most of the specialists consider that the city got its name from the river Kharkov. For the first time this name was mentioned in “The Book of Great Schedule” which was composed in 1627.</p></div>
+
+</div>
+</section>
+
+
+<div class = "kharkiv">
+
+  <img src="{% static 'images/his.jpg' %}" alt="" width="400" height="400" class="history-image">
+  <img src="{% static 'images/his3.jpg' %}" alt="" width="400" height="400" class="history-image">
+
+</div>
+
+
+
+<div class = "help">
+  <h2>Feel the rhythms of Kharkiv</h2>
+      <img src="{% static 'images/Line.png' %}" alt="" width = "130" class="image_group1">
+    <div class = "guide_slogan"><p>Try to live a few days in the rhythm of a hospitable city and find out all its secrets that become known only when your heart skips a beat with Kharkov.</p></div>
+</div>
+
+</div>
+<div class = "video-cover" data-vide-bg="{% static 'images/KhaNG.mp4' type='video/mp4' %}"></div>
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="http://atuin.ru/demo/vide/jquery.vide.js"></script>
+
+{% endblock %}

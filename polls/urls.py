@@ -12,5 +12,6 @@ urlpatterns = [
     path('ticket/<pk>/', v.PricesDetail.as_view(), name='ticket'),
     path('add/<pk>', views_cart.cart_add, name='add'),
     path('remove/<pk>', views_cart.cart_remove, name='remove'),
+    path('guidebook/', v.GuidebookView.as_view(), name='guidebook'),
     path('faq/', TemplateView.as_view(template_name='faq.html'), name='faq'),
 ]
