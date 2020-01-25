@@ -17,8 +17,14 @@
 <div class="day"> {{element.days}} Days</div>
 <div class = "price"> {{element.price}} ₴</div>
 <div class = "buy">
+  {% if user.is_authenticated %}
 <a class="gradient-btn_Prices"  href="{{element.get_absolute_url}}">Add to basket</a>
-<a class="gradient_btn_Prices"  href="{{element.get_absolute_url}}">Add to basket</a></div>
+<a class="gradient_btn_Prices"  href="{{element.get_absolute_url}}">Add to basket</a>
+{%else%}
+<a class="gradient-btn_Prices"  href="{% url 'login' %}">Log In to buy</a>
+<a class="gradient_btn_Prices"  href="{% url 'login' %}">Log In to buy</a>
+{% endif %}
+</div>
 </div>
  {% endfor %}
 
@@ -44,7 +50,7 @@
       <div class="user_name">Ivan Ivanov</div>
       <div class="slider__year">19.07.2019</div>
             </div>
-    
+
       <div class="slider__item">
               <h3 class="slider__title ">Exselent! </h3>
               <div class="span slider__rating-label"><p>Lorem ipsum dolor sit aris nisi ut aliquip ex ea commodo consequat.  <span id = "dots3">...</span><span id = "more3">Lorem ipsum dolor sit amet, .</span></p></div>

@@ -65,6 +65,9 @@
 
 <div class ="section_account">
   <div class = "basket">
+    {% if cart.empty == True %}
+    <div class = "title_Basket">Your basket is empty</div>
+    {% else %}
               <div class = "title_Basket">Your basket</div>
 
 {% for item in cart %}
@@ -84,11 +87,11 @@
 
 
 
- <div class="total_price">Total price: {{cart.get_total_price}} ₴</div>
+ <div class="total_price"> Total price: {{cart.get_total_price}} ₴</div>
  <div class = "buy">
  <a class="gradient-btn_account"  href="">Buy</a>
  <a class="gradient_btn_account"  href="">Buy</a></div>Buy
-
+{% endif %}
                       </div>
 
 </div>

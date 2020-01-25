@@ -31,8 +31,9 @@ def cart_add(request, pk):
 
     if form.is_valid():
         logging.info('Inside')
-
+        logging.info(form)
         cd = form.cleaned_data
+        logging.info(form)
         item = Item(type_ticket = type, name_person = cd['name_person'], surname_person = cd['surname_person'], date_start = cd['date_start'])
 
         logging.info(item.type_ticket)

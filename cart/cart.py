@@ -51,6 +51,13 @@ class Cart(object):
         # mark the session as "modified" to make sure it is saved
         self.session.modified = True
 
+    def empty(self):
+        if bool(self.cart)==False:
+            return True
+        else:
+            return False
+        logging.info(cart.empty)
+
     def remove(self, item):
         item_id = str(item.id)
         if item_id in self.cart:
