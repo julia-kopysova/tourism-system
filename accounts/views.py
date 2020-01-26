@@ -6,9 +6,46 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.views.decorators.http import require_POST
-from polls.models import Type, Item
+from polls.models import Type, Item, Review
 from cart.cart import Cart
 from cart.forms import CartAddItemForm
+from accounts.forms import  WriteReviewForm
+from django.utils import timezone
+from datetime import date
+import logging, logging.config
+import sys
+
+LOGGING = {
+'version': 1,
+'handlers': {
+    'console': {
+        'class': 'logging.StreamHandler',
+        'stream': sys.stdout,
+    }
+},
+'root': {
+    'handlers': ['console'],
+    'level': 'INFO'
+}
+}
+logging.config.dictConfig(LOGGING)
+
+def write_review(response):
+    if response.method == "POST":
+        user = response.user
+        form = WriteReviewForm(response.POST)
+        if form.is_valid():
+            logging.info(form)
+            cd = form.cleaned_data
+            review = Review( user = user, title = cd['title'], text = cd['text'], date_write = date.today())
+            review.save()
+            return redirect('prices')
+    else:
+        form = WriteReviewForm()
+    return render(response, 'review.html', {'form': form})
+
+
+
 
 def own_account(request):
     cart = Cart(request)

@@ -11,7 +11,11 @@
 
 <div class="ticket" height = "200" width="10" >
 <div class = "name_info">{{ object.type }}</div>
-<div class="day">{{ object.days }} Days</div>
+{% if object.days is 1 %}
+<div class="day"> {{object.days}} Day</div>
+{% else %}
+<div class="day"> {{object.days}} Days</div>
+{% endif %}
 <div class = "price"> {{ object.price }} ₴</div>
 <div class = "description">Fill in the information about the person who will use this card when visiting attractions.</div>
 

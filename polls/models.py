@@ -40,3 +40,9 @@ class Item(models.Model):
     name_person = models.CharField(max_length=20)
     surname_person = models.CharField(max_length=20)
     date_start = models.DateField()
+
+class Review(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    title = models.CharField(max_length=40)
+    text = models.TextField(max_length=200)
+    date_write = models.DateField()

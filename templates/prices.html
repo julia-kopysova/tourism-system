@@ -10,11 +10,15 @@
 <link rel="stylesheet" href="{% static 'css/style_buy.css' %}"><!-- string Prices  {{type.get_label_display}}-->
 <div class ="section_Prices">
 
- {%for element in object_list %}
+ {%for element in types_list %}
 <div class="{{element.type}}" height = "200" width="10" >
 <div class = "name_info">{{element.type}}</div>
   <div class = "description_Prices"><p> {{element.desc}} </p></div>
+  {% if element.days is 1 %}
+  <div class="day"> {{element.days}} Day</div>
+  {% else %}
 <div class="day"> {{element.days}} Days</div>
+{% endif %}
 <div class = "price"> {{element.price}} ₴</div>
 <div class = "buy">
   {% if user.is_authenticated %}
@@ -35,29 +39,14 @@
 
       <div class="slider owl-carousel">
 
-           <div class="slider__item">
-              <h3 class="slider__title ">Exselent! </h3>
-              <div class="span slider__rating-label"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <span id = "dots">...</span><span id = "more">Lorem ipsum dolor sit amet, consectetur  Excepteur sint occaecat cupidatat non proident, .</span></p></div>
-      <button id = "bt" onclick="readMore()">More</button>
-      <div class="user_name">Ivan Ivanov</div>
-      <div class="slider__year">19.07.2019</div>
-            </div>
-
-           <div class="slider__item">
-              <h3 class="slider__title ">Exselent! </h3>
-              <div class="span slider__rating-label"><p>Lorem ipsum dolor sit amet, consectetur  .<span id = "dots1">...</span><span id = "more1">Lorem ipsum dolor sit amet, consectetur .</span></p>
-      <button id = "bt1" onclick="readMore1()"> More</button></div>
-      <div class="user_name">Ivan Ivanov</div>
-      <div class="slider__year">19.07.2019</div>
-            </div>
-
+     {%for review in reviews_list %}
       <div class="slider__item">
-              <h3 class="slider__title ">Exselent! </h3>
-              <div class="span slider__rating-label"><p>Lorem ipsum dolor sit aris nisi ut aliquip ex ea commodo consequat.  <span id = "dots3">...</span><span id = "more3">Lorem ipsum dolor sit amet, .</span></p></div>
-      <button id = "bt3" onclick="readMore3()"> More</button>
-      <div class="user_name">Davydova Olga</div>
-      <div class="slider__year">19.07.2019</div>
+      <h3 class="slider__title ">{{review.title}} </h3>
+      <div class="span slider__rating-label"><p>{{review.text}}</p></div>
+      <div class="user_name">{{review.user.get_full_name}}</div>
+      <div class="slider__year">{{review.date_write}}</div>
             </div>
+      {% endfor %}
 
 </div>
 

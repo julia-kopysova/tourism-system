@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Sight, Type, Item
+from .models import Sight, Type, Item, Review
 from django.views.generic import ListView,DetailView
 from cart.forms import CartAddItemForm
 from django import forms
@@ -14,9 +14,16 @@ class SightDatailView(DetailView):
     model = Sight
     template_name = "sight_one.html"
 
+
 class PricesView(ListView):
     model = Type
     template_name = "prices.html"
+    context_object_name = 'types_list'
+    queryset = Type.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super(PricesView, self).get_context_data(**kwargs)
+        context['reviews_list'] = Review.objects.all()
+        return context
 
 class PricesDatailView(DetailView):
     model = Type

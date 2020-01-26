@@ -8,5 +8,5 @@ urlpatterns = [
     path('account/', views.own_account, name='account'),
     path('account/edit_account', views.edit_account, name='edit_account'),
     path('account/change_password', views.change_password, name='change_password'),
-
+    path('account/review ', views.write_review, name='review'),
 ]
