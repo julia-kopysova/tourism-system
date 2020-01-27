@@ -6,9 +6,20 @@
 
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+<div class="center">
+<article class="ticket">
+
+
 <form class = "form" action="" method="post">
   {% csrf_token %}
-  {{ form.as_p}}
-  <input type="submit" value= "Send">
+<label class="label-text" for="id_title">Were you satisfied with the result?</label>
+<input class="form-styling" type="text" name="title" value="" maxlength="40" required id="id_title" placeholder="Your impression">
+<label class="label-text"  for="id_text">Write more abot your impression</label>
+<textarea class="form-styling-text" name="text" cols="40" rows="10" maxlength="200" required id="id_text" >
+</textarea>
+  <input class="form-styling-submit" type="submit" value= "Send">
 </form>
+</article>
+</div>
 {% endblock content %}

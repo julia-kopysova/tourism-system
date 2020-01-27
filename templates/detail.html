@@ -8,7 +8,7 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
 <link rel="stylesheet" href="{% static 'css/style_selection.css' %}" />
-
+<div class="center">
 <div class="ticket" height = "200" width="10" >
 <div class = "name_info">{{ object.type }}</div>
 {% if object.days is 1 %}
@@ -92,6 +92,6 @@
   </form>
   </div>
 </div>
-
+</div>
 
 {% endblock %}
