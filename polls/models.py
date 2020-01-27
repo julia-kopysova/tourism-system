@@ -3,6 +3,7 @@ from django.db import models
 from django.shortcuts import reverse
 from django.db.models.signals import post_save
 from django.conf import settings
+from django.db.models import Count
 
 class Sight(models.Model):
     name_sight = models.CharField(max_length=60)
@@ -46,3 +47,5 @@ class Review(models.Model):
     title = models.CharField(max_length=40)
     text = models.TextField(max_length=200)
     date_write = models.DateField()
+    class Meta:
+         ordering = ['-date_write']
