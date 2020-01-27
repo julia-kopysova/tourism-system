@@ -19,6 +19,7 @@
 }
 .section_account{
   width: 55%;
+	min-height: 420px;
   display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;

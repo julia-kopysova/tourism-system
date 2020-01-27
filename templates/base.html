@@ -9,7 +9,12 @@
   <link rel="stylesheet" href="{% static 'css/slider.css' %}" /> <!-- All-->
     <link rel="stylesheet" href="{% static 'css/style_button.css' %}" /> <!-- All-->
         <link rel="stylesheet" href="{% static 'css/own.carousel.min.css' %}" /> <!-- All-->
+
   <link rel="stylesheet" href="{% static 'css/style_base.css' %}" /> <!-- All-->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}"/>
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}" />
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}" />
+<link rel="manifest" href="/site.webmanifest">
       <title>Shocard</title>
         </head>
         <body>
@@ -67,10 +72,10 @@
         {% endif %}
       </nav>
       <div class ="social">
-    	<div><img src="{% static 'images/facebook.png' %}" width="50" height="50" alt="Логотип"/> </div>
-    	<div><img src="{% static 'images/instagram.png ' %}" width="50" height="50" alt="Логотип"/>  </div>
-    	<div><img src="{% static 'images/twitter.png' %} " width="50" height="50" alt="Логотип"/> </div>
-    	<div><img src="{% static 'images/youtube.png' %}" width="50" height="50" alt="Логотип"/> </div></div>
+    	<div class="social_li"> <a href="https://ru-ru.facebook.com/Kharkov.City"> <img src="{% static 'images/facebook.png' %}" width="50" height="50" alt="Логотип"/></a></div>
+    	<div class="social_li"> <a href="https://www.instagram.com/kharkiv_1654/?hl=ru"><img src="{% static 'images/instagram.png ' %}" width="50" height="50" alt="Логотип"/> </a> </div>
+    	<div class="social_li"><a href="https://twitter.com/xapkib"><img src="{% static 'images/twitter.png' %} " width="50" height="50" alt="Логотип"/> </a></div>
+      </div>
 
 
 	</footer>

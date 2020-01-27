@@ -30,6 +30,9 @@
   margin-right: 100px;
   font-size: 20px;
 }
+.nav__link:hover {
+  color: #C1292E;
+}
 
 .nav__login {
   border: 10px solid #003366;
@@ -61,7 +64,13 @@ position: absolute;
 
 .social{
 	display: flex;
+  position: relative;
+  overflow: hidden;
 }
+.social_li{
+  padding-left: 8px;
+}
+
 .name{
 	font-size: 40px;
 
