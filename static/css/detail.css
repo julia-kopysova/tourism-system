@@ -127,3 +127,102 @@ text-align: left;
   font-size: 15px;
   border: none;
 }
+@media screen and (max-width: 400px) and (min-width: 100px)
+{
+ .select{
+  font-size: 12px;
+  padding: 3px 3px;
+ }
+
+ .day{
+  font-size: 17px;
+
+ }
+ .form-styling-submit {
+  height: 25px;
+ font-size: 10px;
+ }
+.form-styling{
+   height: 25px;
+ font-size: 10px;
+}
+.description{
+ font-size: 15px;
+}
+.ticket{width: 250px;}
+
+.price{
+ font-size: 20px;
+}
+.name_info{
+ font-size: 20px;
+ width: 20%;
+}
+}
+
+@media screen and (max-width: 700px) and (min-width: 400px)
+{
+  .select{
+   font-size: 12px;
+   padding: 6px 6px;
+
+  }
+
+  .day{
+   font-size: 20px;
+
+  }
+  .form-styling-submit {
+   height: 30px;
+  font-size: 15px;
+  }
+ .form-styling{
+    height: 28px;
+  font-size: 15px;
+ }
+ .description{
+  font-size: 17px;
+ }
+ .ticket{width: 320px;}
+
+
+ .price{
+  font-size: 25px;
+ }
+ .name_info{
+  font-size: 22px;
+  width: 25%;
+ }
+ }
+
+ @media screen and (max-width: 1200px) and (min-width: 700px)
+ {
+
+
+  .select{
+   font-size: 14px;
+   padding: 8px 8px;
+  }
+
+  .day{
+   font-size: 22px;
+
+  }
+  .form-styling-submit {
+   height: 30px;
+  font-size: 14px;
+  }
+ .form-styling{
+    height: 28px;
+  font-size: 15px;
+ }
+ .description{
+  font-size: 20px;
+ }
+ .ticket{width: 350px;}
+
+ .price{
+  font-size: 25px;
+ }
+
+ }
