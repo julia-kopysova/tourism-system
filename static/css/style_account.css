@@ -2,10 +2,10 @@
 
 
 .all{
-	 display: flex;
-	flex-direction:row;
+  display: flex;
+ flex-direction:row;
   justify-content: space-between;
-	margin-top: 30px;
+ margin-top: 30px;
   flex-wrap: wrap;
 
 }
@@ -19,7 +19,7 @@
 }
 .section_account{
   width: 55%;
-	min-height: 420px;
+ min-height: 420px;
   display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
@@ -35,9 +35,9 @@
 .form-styling {
   width: 60%;
   height: 25px;
-	padding-left: 15px;
-	border: none;
-	border-radius: 20px;
+ padding-left: 15px;
+ border: none;
+ border-radius: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   background: rgba(255,255,255,.2);
@@ -45,18 +45,18 @@
 .form-styling1 {
   width: 25%;
   height: 25px;
-	padding-left: 15px;
-	border: none;
+ padding-left: 15px;
+ border: none;
 text-align: left;
-	border-radius: 20px;
+ border-radius: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   background: rgba(255,255,255,.2);
 }
 .gradient-btn_account{
-	display: flex;
-	 align-items: center;
-	 justify-content:center;
+ display: flex;
+  align-items: center;
+  justify-content:center;
 }
 
 .gradient_btn_account{
@@ -175,14 +175,55 @@ border-radius: 20px;
   font-size: 30px;
 }
 .price{
-	font-size: 20px;
-	color: #ffffff;
-  text-decoration: overline;
+ font-size: 23px;
+ color: #c94036;
   display: flex;
-  margin-bottom: 20px;
   justify-content: center;
 }
 
+.date_basket{
+ margin-bottom: 15px;
+ text-align: center;
+ color: #333333;
+ font-size: 18px;
+}
+.day{
+ text-align: center;
+ color: #003366;
+margin-bottom: 5px;
+  font-size: 17px;
+}
+
+.Date-start{
+ text-align: center;
+ color: #003366;
+margin-bottom: 5px;
+ font-size: 17px;
+}
+.info-basket{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-around;
+ margin-bottom: 5px;
+ margin-top: 5px;
+
+}
+.name{
+ font-size: 17px;
+   color: #333333;
+  background-color: #dddfe6;
+  padding: 3px 5px;
+  border-radius: 12px;
+}
+
+.sername{
+ font-size: 17px;
+  color: #333333;
+  background-color: #dddfe6;
+  padding: 3px 5px;
+  border-radius: 12px;
+}
 .total_price{
   font-size: 25px;
   text-decoration: overline;
@@ -194,8 +235,9 @@ border-radius: 20px;
   color: #333333;
   font-size: 16px;
 }
+
 .name_info_basket{
-  font-size: 14px;
+  font-size: 24px;
   margin-top:20px;
     color: #c94036;
     font-weight: bolder;
@@ -216,11 +258,8 @@ border-radius: 20px;
   display: flex;
   width: 10%;
 }
-.day{
-	text-align: center;
-	color: #333333;
-  font-size: 20px;
-}
+
+
 .title_Basket{
   font-size: 23px;
   color: #333333;
@@ -258,7 +297,7 @@ justify-content: center;
 }
 
 .ticket_basket{
-  background-color: #c94036;
+  background-color: #dddfe6;
   width: 90%;
   height: 100%;
 }
@@ -268,8 +307,8 @@ justify-content: center;
   color: #333333;
 }
 .email_account{
-	font-size: 15px;
-	color: #003366;
+ font-size: 15px;
+ color: #003366;
 }
 .name_account, .surname_account{
   font-size: 20px;
@@ -300,9 +339,9 @@ justify-content: center;
 
 .name_info{
   margin-top:20px;
-  	color: #c94036;
-  	font-weight: bolder;
-  	 border: none;
+   color: #c94036;
+   font-weight: bolder;
+    border: none;
     background:  #003366 ;
     border-radius: 15px;
     padding: 15px ;
@@ -325,7 +364,7 @@ justify-content: center;
 .date{
   display: flex;
   justify-content: space-around;
-	color: #064069;
+ color: #064069;
   width: 100%;
 }
 
@@ -342,7 +381,7 @@ justify-content: center;
 
   }
   .gradient_btn_account{
-  	display:inline;
+   display:inline;
     width: 100px;
     height: 25px;
     text-align: center;
@@ -360,11 +399,11 @@ justify-content: center;
   }
 
   .gradient-btn_account {
-  	display: none;
+   display: none;
   }
 
   .gradient-btn_account::before, .gradient-btn_account:hover::before{
-  	display: none;
+   display: none;
 
   }
   .History{
@@ -461,13 +500,14 @@ justify-content: center;
 
   }
 
-@media screen and (max-width: 1200px) and (min-width: 700px)
+@media screen and (max-width: 1200
+px) and (min-width: 700px)
 {
 .using_ticket{
   width: 100%;
 }
   .gradient_btn_account{
-  	display:inline;
+   display:inline;
     width: 100px;
     height: 25px;
     text-align: center;
@@ -485,11 +525,11 @@ justify-content: center;
   }
 
   .gradient-btn_account {
-  	display: none;
+   display: none;
   }
 
   .gradient-btn_account::before, .gradient-btn_account:hover::before{
-  	display: none;
+   display: none;
 
   }
 

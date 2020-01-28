@@ -62,10 +62,13 @@
               <div class = "ticket_basket">
               <div class = "name_info_basket">{{item.type}}</div>
                <div class="day">{{item.days}} Days</div>
-            <div class="day"> {{item.name_person}} </div>
-            <div class="day"> {{item.surname_person}} </div>
-            <div class="day"> {{item.date_start}} </div>
-            <div class = "price">{{item.price}}</div>
+                 <div class = "price">{{item.price}}</div>
+                 <div class="info-basket">
+            <div class="name"> {{item.name_person}} </div>
+            <div class="sername"> {{item.surname_person}} </div>
+            </div><div class="Date-start"> Date start </div>
+            <div class="date_basket"> {{item.date_start}} </div>
+
               </div>
 
             </div>
@@ -75,8 +78,9 @@
 
  <div class="total_price"> Total price: {{cart.get_total_price}} ₴</div>
  <div class = "buy">
- <a class="gradient-btn_account"  href="">Buy</a>
- <a class="gradient_btn_account"  href="">Buy</a></div>Buy
+ <a class="gradient-btn_account"  href="{% url 'prices' %}">Return</a>
+ <a class="gradient_btn_account"  href="{% url 'prices' %}">Return</a></div>
+
 {% endif %}
                       </div>
 
