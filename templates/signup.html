@@ -19,31 +19,31 @@
                     {% csrf_token %}
           <label for="username">Username</label>
           <input class="form-styling" type="text" name="username" placeholder=""/>
-          <p>{{ form.username.errors }}</p>
+          <p class="output_error">{{ form.username.errors }}</p>
           <label for="name">First name</label>
           <input class="form-styling" type="text" name="first_name" placeholder=""/>
-          <p>{{ form.first_name.errors }}</p>
+          <p class="output_error">{{ form.first_name.errors }}</p>
           <label for="surname">Last name</label>
           <input class="form-styling" type="text" name="last_name" placeholder=""/>
-          <p>{{ form.last_name.errors }}</p>
+          <p class="output_error">{{ form.last_name.errors }}</p>
           <label for="email">E-mail</label>
           <input class="form-styling" type="email" name="email" placeholder=""/>
-          <p>{{ form.email.errors }}</p>
+          <p class="output_error">{{ form.email.errors }}</p>
           <label for="password1">Password 1</label>
           <input class="form-styling" type="password" name="password1" placeholder=""/>
-          <p>{{ form.password1.errors }}</p>
+          <p class="output_error">{{ form.password1.errors }}</p>
           <label for="password2">Password 2</label>
           <input class="form-styling" type="password" name="password2" placeholder=""/>
-
+          <p class="output_error">{{ form.password2.errors }}</p>
           <div class="butn-animate">
             <button  type="submit" class="butn-signup">Sign up</button>
-              <p>{{ form.password2.errors }}</p>
           </div>
+          </form>
 
-            <div class="frame-end"><a class="forget" href = "#">Forgot your password? |</a>
+            <div class="frame-end"><a class="forget" href = "/accounts/password_reset/">Forgot your password? |</a>
             <a class="login" href = "{% url 'login' %}">Log in</a></div>
 
-				        </form>
+
 
   </div>
 

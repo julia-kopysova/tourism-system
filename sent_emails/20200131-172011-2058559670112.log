@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: kiyasko@gmail.com
+Date: Fri, 31 Jan 2020 15:20:11 -0000
+Message-ID: <158048401170.20380.13636875130100955337@DESKTOP-41E9SHO>
+
+Someone asked for password reset for email kiyasko@gmail.com. Follow the link below:
+http://127.0.0.1:8000/accounts/reset/NA/5dl-111a59dfccf2d8c250c0/
+
+-------------------------------------------------------------------------------

@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: trufel@gmail.com
+Date: Sun, 02 Feb 2020 17:00:32 -0000
+Message-ID: <158066283222.1244.12005279855256868862@DESKTOP-41E9SHO>
+
+Someone asked for password reset for email trufel@gmail.com. Follow the link below:
+http://127.0.0.1:8000/accounts/reset/Nw/5dn-e1ab0b464e1c3f232615/
+
+-------------------------------------------------------------------------------

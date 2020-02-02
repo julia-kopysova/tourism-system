@@ -14,7 +14,7 @@ body {
 }
 
 .frame {
-  height: 900px;
+  height: 100%;
   width: 430px;
   background:
     linear-gradient(
@@ -64,7 +64,6 @@ li {
 
 .form-signup {
   width: 430px;
-  height: 175px;
 	font-size: 16px;
 	font-weight: 300;
   padding-left: 37px;
@@ -77,10 +76,16 @@ li {
 }
 
 .frame-end{
+  margin-bottom: 30px;
     margin-top: 135px;
 border-top: solid 1px rgba(255,255,255,.3);
       text-align: center;
 
+}
+.output_error{
+  font-size: 10px;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 .forget{
   line-height: 35px;
@@ -124,6 +129,7 @@ label {
 
 
 .butn-signup {
+  margin-bottom: 30px;
   float: left;
   background-color: #003366;
   padding-top: 8px;
@@ -138,6 +144,7 @@ label {
 }
 
 .butn-animate {
+  margin-bottom: 20px;
   float: left;
   font-weight: 700;
   text-transform: uppercase;
@@ -199,4 +206,84 @@ label {
   fill: #c94036;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+
+
+@media screen and (max-width: 400px) and (min-width: 100px)
+{
+  .forget2{
+    display: inline;
+    line-height: 35px;
+  color:#dddfe6;
+  font-size: 10px;
+      text-decoration: none;
+  }
+  .frame {
+
+    width: 230px;
+  }
+
+    .signup-active{
+font-size: 13px;}
+
+.form-signup{
+
+  width: 230px;
+  padding-top: 15px;
+}
+label{
+  font-size: 10px;
+  padding-bottom: 8px;
+}
+
+
+.butn-animate{
+  margin-top:  15px;
+  font-size: 13px;
+  height: 23px;
+}
+.butn-signup{
+
+  font-size: 10px;
+  height: 23px;
+}
+
+.frame-end{
+  margin-top: 80px;
+}
+.forget{
+  display: none;
+}
+.form-styling{
+  height: 70%;
+}
+}
+
+@media screen and (max-width: 700px) and (min-width: 400px)
+{
+  .forget2{
+    display: none;
+  }
+  .frame {
+
+    width: 330px;
+  }
+
+    .signup-active{
+font-size: 13px;}
+
+.form-signup{
+
+  width: 330px;
+  padding-top: 15px;
+}
+
+.form-styling{
+  height: 70%;
+}
+label{
+  font-size: 13px;
+  padding-bottom: 8px;
+}
 }
