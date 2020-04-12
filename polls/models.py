@@ -49,3 +49,12 @@ class Review(models.Model):
     date_write = models.DateField()
     class Meta:
          ordering = ['-date_write']
+
+class Order(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    items = models.ManyToManyField(Item)
+    date = models.DateTimeField(auto_now_add=True)
+    paid = models.BooleanField(default=False)
+    def total_cost(self):
+        return sum([ i.type_ticket.price for i in self.items.all() ] )
+#item.type_ticket.price

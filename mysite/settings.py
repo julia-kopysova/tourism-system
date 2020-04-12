@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'cart.apps.CartConfig',
+    'paypal.standard.ipn',
+    'checkout.apps.CheckoutConfig',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +144,5 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+PAYPAL_RECEIVER_EMAIL = 'julykopysova97@gmail.com'
+PAYPAL_TEST = True
