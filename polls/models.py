@@ -4,6 +4,7 @@ from django.shortcuts import reverse
 from django.db.models.signals import post_save
 from django.conf import settings
 from django.db.models import Count
+from decimal import Decimal
 
 class Sight(models.Model):
     name_sight = models.CharField(max_length=60)
@@ -56,5 +57,5 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     paid = models.BooleanField(default=False)
     def total_cost(self):
-        return sum([ i.type_ticket.price for i in self.items.all() ] )
+        return Decimal(sum([ i.type_ticket.price for i in self.items.all() ] ))
 #item.type_ticket.price

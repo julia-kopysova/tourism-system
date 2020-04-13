@@ -25,7 +25,7 @@ SECRET_KEY = 'ej+^!h2lw=ra23jcb_ov-u)qg0xc60*a7u8g078klr-hi)!(mc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['e70dacb7.ngrok.io']
 
 
 # Application definition
@@ -144,5 +144,5 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
-PAYPAL_RECEIVER_EMAIL = 'julykopysova97@gmail.com'
+PAYPAL_RECEIVER_EMAIL = 'sb-q2rg431439116@business.example.com'
 PAYPAL_TEST = True
