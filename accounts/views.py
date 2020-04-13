@@ -6,7 +6,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.views.decorators.http import require_POST
-from polls.models import Type, Item, Review
+from polls.models import Type, Item, Review,Order
 from cart.cart import Cart
 from cart.forms import CartAddItemForm
 from accounts.forms import  WriteReviewForm
@@ -49,7 +49,14 @@ def write_review(response):
 
 def own_account(request):
     cart = Cart(request)
-    return render(request,'account.html', {'cart': cart})
+    user = request.user
+    orders_filter = Order.objects.filter(user = user, paid = 'True')
+    ordersget = Order.objects.get(user = user, paid = 'True')
+    tickets = []
+    for order in ordersget.items.all():
+        tickets.append(order)
+    logging.info(tickets)
+    return render(request,'account.html', {'cart': cart, 'tickets':tickets})
 
 def signup(response):
     if response.method == "POST":

@@ -46,6 +46,20 @@
     <div class = "buy_ticket">
 <div class = "All_ticket">Tickets</div>
 
+{% for ticket in tickets %}
+<div class = "ticket_LITE">
+    <div class = "name_info">{{ticket.type_ticket.type}}</div>
+      <div class = "name surname">{{ticket.name_person}} {{ticket.surname_person}}</div>
+    <div class="number">{{ticket.id}}</div>
+    <div class = "date">
+    <div class = "start_date">{{ticket.date_start}}</div>
+    	<div class = "end_date">23.12.2019</div>
+      </div>
+    </div>
+{% endfor %}
+
+
+
     </div>
   </div>
 
