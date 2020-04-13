@@ -51,11 +51,15 @@ def own_account(request):
     cart = Cart(request)
     user = request.user
     orders_filter = Order.objects.filter(user = user, paid = 'True')
-    ordersget = Order.objects.get(user = user, paid = 'True')
     tickets = []
-    for order in ordersget.items.all():
-        tickets.append(order)
-    logging.info(tickets)
+    try:
+        ordersget = Order.objects.get(user = user, paid = 'True')
+        for order in ordersget.items.all():
+            tickets.append(order)
+    except Order.DoesNotExist:
+        ordersget = None
+
+    logging.info(ordersget)
     return render(request,'account.html', {'cart': cart, 'tickets':tickets})
 
 def signup(response):
