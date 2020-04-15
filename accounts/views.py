@@ -53,13 +53,18 @@ def own_account(request):
     orders_filter = Order.objects.filter(user = user, paid = 'True')
     tickets = []
     try:
-        ordersget = Order.objects.get(user = user, paid = 'True')
-        for order in ordersget.items.all():
-            tickets.append(order)
+        logging.info(orders_filter)
+        #ordersget = Order.objects.get(user = user, paid = 'True')
+        for order in orders_filter:
+            all_tickets_in_one_order = order.items.all()
+            for one in all_tickets_in_one_order:
+                logging.info(one.id)
+                one_ticket = Item.objects.get(id = one.id)
+                tickets.append(one_ticket)
     except Order.DoesNotExist:
-        ordersget = None
-
-    logging.info(ordersget)
+        orders_filter = None
+    logging.info(tickets)
+    #logging.info(ordersget)
     return render(request,'account.html', {'cart': cart, 'tickets':tickets})
 
 def signup(response):
