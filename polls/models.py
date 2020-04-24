@@ -5,6 +5,8 @@ from django.db.models.signals import post_save
 from django.conf import settings
 from django.db.models import Count
 from decimal import Decimal
+from datetime import datetime, timedelta
+
 
 class Sight(models.Model):
     name_sight = models.CharField(max_length=60)
@@ -42,6 +44,7 @@ class Item(models.Model):
     name_person = models.CharField(max_length=20)
     surname_person = models.CharField(max_length=20)
     date_start = models.DateField()
+    date_finish = models.DateField(blank=True)
 
 class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)

@@ -6,6 +6,7 @@ from .cart import Cart
 from .forms import CartAddItemForm
 import logging, logging.config
 import sys
+from datetime import datetime, timedelta
 
 @require_POST
 def cart_add(request, pk):
@@ -34,13 +35,12 @@ def cart_add(request, pk):
         logging.info(form)
         cd = form.cleaned_data
         logging.info(form)
-        item = Item(type_ticket = type, name_person = cd['name_person'], surname_person = cd['surname_person'], date_start = cd['date_start'])
-
+        finish = cd['date_start'] + timedelta(days = type.days)
+        item = Item(type_ticket = type, name_person = cd['name_person'], surname_person = cd['surname_person'], date_start = cd['date_start'], date_finish = finish)
         logging.info(item.type_ticket)
         logging.info(item.name_person)
         logging.info(item.surname_person)
         logging.info(item.date_start)
-
         item.save()
         cart.add(item)
 
