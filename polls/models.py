@@ -1,11 +1,15 @@
 from django.conf import settings
 from django.db import models
+from django.contrib.auth.models import User
 from django.shortcuts import reverse
 from django.db.models.signals import post_save
 from django.conf import settings
 from django.db.models import Count
 from decimal import Decimal
 from datetime import datetime, timedelta
+from phone_field import PhoneField
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Sight(models.Model):
@@ -61,4 +65,23 @@ class Order(models.Model):
     paid = models.BooleanField(default=False)
     def total_cost(self):
         return Decimal(sum([ i.type_ticket.price for i in self.items.all() ] ))
-#item.type_ticket.price
+
+class Profile(models.Model):
+    GENDER_CHOICES = (
+        ('Male', 'Male'),
+        ('Female', 'Female')
+    )
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=6)
+    phone = PhoneField(null=False, blank=False, unique=True)
+    birth_date = models.DateField(null=True, blank=True)
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()

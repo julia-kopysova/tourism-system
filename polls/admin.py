@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sight, Type, Item, Review, Order
+from .models import Sight, Type, Item, Review, Order,Profile
 # Register your models here.
 
 class OrderAdmin(admin.ModelAdmin):
@@ -8,6 +8,7 @@ class ReviewAdmin(admin.ModelAdmin):
     list_display = ['user', 'title', 'date_write', 'text']
 
 admin.site.register(Sight)
+admin.site.register(Profile)
 admin.site.register(Type)
 admin.site.register(Item)
 admin.site.register(Review,ReviewAdmin)

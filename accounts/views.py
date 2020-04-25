@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import SignUpForm, EditAccountForm
+from .forms import SignUpForm, EditAccountForm, EditProfileForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth import login, authenticate
@@ -84,12 +84,17 @@ def signup(response):
 def edit_account(response):
     if response.method == "POST":
         form = EditAccountForm(response.POST, instance=response.user)
-        if form.is_valid():
+        profile_form = EditProfileForm(response.POST, instance=response.user.profile)
+        logging.info(form)
+        logging.info(profile_form)
+        if form.is_valid() and profile_form.is_valid():
             form.save()
+            profile_form.save()
             return redirect('/accounts/account')
     else:
         form = EditAccountForm(instance=response.user)
-    return render(response, 'edit_account.html',{"form": form})
+        profile_form = EditProfileForm(instance=response.user.profile)
+    return render(response, 'edit_account.html',{"form": form, "profile_form": profile_form})
 
 def change_password(response):
     if response.method == "POST":

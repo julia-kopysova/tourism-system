@@ -22,9 +22,13 @@
             <div class = "user_surname">
           <div class = "Surname_account">Surname:</div>
           <div class = "surname_account">{{ user.last_name }}</div></div>
-            <div class = "user_email">
-            <div class="Email_account">E-mail:</div>
-        <div class="email_account">{{ user.email }}</div></div>
+        <div class = "user_email">
+        <div class="Email_account">E-mail:</div>
+        <div class="email_account">{{ user.email }}</div>
+        <div class="email_account">Genser: {{ user.profile.gender }}</div>
+        <div class="email_account">Birth Date: {{ user.profile.birth_date }}</div>
+        <div class="email_account">Phone: {{ user.profile.phone}}</div>
+      </div>
         <div class = "buy">
         <a class="gradient-btn_account"  href="{% url 'edit_account' %}">Edit</a>
         <a class="gradient_btn_account"  href="{% url 'edit_account' %}">Edit</a>

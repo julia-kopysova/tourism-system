@@ -17,19 +17,8 @@
 
 				        <form class="form-signup" action="" method="post" name="form">
                     {% csrf_token %}
-          <label for="username">Username</label>
-          <input class="form-styling" type="text" name="username" placeholder="{{ user.username }}"/>
-          <p>{{ form.username.errors }}</p>
-          <label for="name">First name</label>
-          <input class="form-styling" type="text" name="first_name" placeholder="{{ user.first_name }}"/>
-          <p>{{ form.first_name.errors }}</p>
-          <label for="surname">Last name</label>
-          <input class="form-styling" type="text" name="last_name" placeholder="{{ user.last_name }}"/>
-          <p>{{ form.last_name.errors }}</p>
-          <label for="email">E-mail</label>
-          <input class="form-styling" type="email" name="email" placeholder="{{ user.email }}"/>
-          <p>{{ form.email.errors }}</p>
-          <div class="butn-animate">
+          {{ form.as_p }}
+            {{ profile_form.as_p }}
             <button  type="submit" class="butn-signup">Submit</button>
 
           </div>

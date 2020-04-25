@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'paypal.standard.ipn',
     'checkout.apps.CheckoutConfig',
+    'phone_field'
 ]
 
 MIDDLEWARE = [
