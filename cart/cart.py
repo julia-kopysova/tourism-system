@@ -51,6 +51,10 @@ class Cart(object):
         # mark the session as "modified" to make sure it is saved
         self.session.modified = True
 
+    def amount(self):
+        return len(self.cart)
+        logging.info(len(self.cart))
+
     def empty(self):
         if bool(self.cart)==False:
             return True

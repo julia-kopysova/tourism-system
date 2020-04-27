@@ -27,7 +27,9 @@
         <div class="email_account">{{ user.email }}</div>
         <div class="email_account">Genser: {{ user.profile.gender }}</div>
         <div class="email_account">Birth Date: {{ user.profile.birth_date }}</div>
-        <div class="email_account">Phone: {{ user.profile.phone}}</div>
+        <div class="email_account">Card in basket:  {{cart.amount}}</div>
+        <div class="email_account">Purchased cards:  {{count_cards}}</div>
+        <div class="email_account">Days in system:  {{days_in_system}}</div>
       </div>
         <div class = "buy">
         <a class="gradient-btn_account"  href="{% url 'edit_account' %}">Edit</a>

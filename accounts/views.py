@@ -1,16 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import SignUpForm, EditAccountForm, EditProfileForm
+from .forms import SignUpForm, EditAccountForm, EditProfileForm, ProfileForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.views.decorators.http import require_POST
-from polls.models import Type, Item, Review,Order
+from polls.models import Type, Item, Review,Order, Profile
 from cart.cart import Cart
 from cart.forms import CartAddItemForm
 from accounts.forms import  WriteReviewForm
 from django.utils import timezone
+import datetime
 from datetime import date
 import logging, logging.config
 import sys
@@ -51,6 +52,10 @@ def own_account(request):
     cart = Cart(request)
     user = request.user
     orders_filter = Order.objects.filter(user = user, paid = 'True')
+    d1 = datetime.datetime.now()
+    d2 = datetime.datetime(user.date_joined.year,user.date_joined.month,user.date_joined.day,user.date_joined.hour,user.date_joined.minute,user.date_joined.second)
+    days_in_system = (d1 - d2).days
+    #days_in_system = (timezone.now - user.date_joined).days
     tickets = []
     try:
         logging.info(orders_filter)
@@ -63,18 +68,22 @@ def own_account(request):
                 tickets.append(one_ticket)
     except Order.DoesNotExist:
         orders_filter = None
+    count = len(tickets)
     logging.info(tickets)
     #logging.info(ordersget)
-    return render(request,'account.html', {'cart': cart, 'tickets':tickets})
+    return render(request,'account.html', {'cart': cart, 'tickets':tickets, 'count_cards':count, 'days_in_system':days_in_system})
 
 def signup(response):
     if response.method == "POST":
         form = SignUpForm(response.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
+            user = form.save()
+            user.refresh_from_db()
+            user.profile.birth_date = form.cleaned_data.get('birth_date')
+            user.profile.gender = form.cleaned_data.get('gender')
+            user.save()
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=user.username, password=raw_password)
             login(response, user)
             return redirect('home')
     else:

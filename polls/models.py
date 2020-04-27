@@ -7,7 +7,6 @@ from django.conf import settings
 from django.db.models import Count
 from decimal import Decimal
 from datetime import datetime, timedelta
-from phone_field import PhoneField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -73,7 +72,6 @@ class Profile(models.Model):
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=6)
-    phone = PhoneField(null=False, blank=False, unique=True)
     birth_date = models.DateField(null=True, blank=True)
 
 
