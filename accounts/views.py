@@ -76,6 +76,7 @@ def own_account(request):
 def signup(response):
     if response.method == "POST":
         form = SignUpForm(response.POST)
+        logging.info(form)
         if form.is_valid():
             user = form.save()
             user.refresh_from_db()
