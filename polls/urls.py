@@ -18,5 +18,5 @@ urlpatterns = [
     path('payment-cancelled/', views_checkout.payment_canceled, name='payment_cancelled'),
     path('remove/<pk>', views_cart.cart_remove, name='remove'),
     path('guidebook/', v.GuidebookView.as_view(), name='guidebook'),
-    path('faq/', TemplateView.as_view(template_name='faq.html'), name='faq'),
+    path('faq/', v.feedback, name='faq'),
 ]

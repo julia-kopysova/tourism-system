@@ -5,6 +5,24 @@ from cart.forms import CartAddItemForm
 from django import forms
 from django.views.generic.edit import FormMixin
 from django.http import HttpResponseForbidden
+from django.contrib import messages
+from .forms import FeedbackForm
+import logging, logging.config
+import sys
+LOGGING = {
+'version': 1,
+'handlers': {
+    'console': {
+        'class': 'logging.StreamHandler',
+        'stream': sys.stdout,
+    }
+},
+'root': {
+    'handlers': ['console'],
+    'level': 'INFO'
+}
+}
+logging.config.dictConfig(LOGGING)
 
 class HomeView(ListView):
     model = Sight
@@ -59,3 +77,16 @@ class PricesDetail(FormMixin, DetailView):
         def form_valid(self, form):
         # pass message
             return super(PricesDetail, self).form_valid(form)
+
+
+def feedback(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        logging.info(form)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, 'Feedback Submitted.')
+            return redirect('faq')
+    else:
+        form = FeedbackForm()
+    return render(request, 'faq.html', {'form': form})

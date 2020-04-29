@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
-
+ul,li,tr,td,th,h3{
+	color:black;!important
+	font-size: 12px;!important 
+}
 .main_FAQ{
 	 display: flex;
 	flex-direction:row;
