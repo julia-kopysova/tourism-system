@@ -6,8 +6,10 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'css/style_prices.css' %}"/><!-- string Prices-->
-<link rel="stylesheet" href="{% static 'css/style_buy.css' %}"><!-- string Prices  {{type.get_label_display}}-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/prices.css' %}"> <!-- price page-->
+<script src="js/buy.js" charset="utf-8"></script> <!-- price page-->
+<link rel="stylesheet" href="{% static 'css/buy1.css' %}"> <!-- price page-->
+
 <div class ="section_Prices">
 
  {%for element in types_list %}

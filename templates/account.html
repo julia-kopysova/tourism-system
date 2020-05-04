@@ -5,8 +5,8 @@
 {% block title %}Account{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/style_account.css' %}"/>
-<link rel="stylesheet" href="{% static 'css/style_buy_account.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}"> <!-- account page-->
+<link rel="stylesheet" href="{% static 'css/buy1.css' %}"> <!-- account page-->
 {% if user.is_authenticated %}
 <div class = "all">
     <div class ="aside_account">

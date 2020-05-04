@@ -5,8 +5,62 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/style_background.css' %} " >
-<link rel="stylesheet" href="{% static 'css/style_home.css' %} " >
+<script src="{% static 'js/glide.min.js' %}" charset="utf-8"></script> <!--Slider homepage page-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/homestyle.css' %}">  <!-- homepage page-->
+<link rel="stylesheet" href="{% static 'css/glide.core.min.css' %}"> <!--Slider homepage page-->
+<link rel="stylesheet" href="{% static 'css/glide.theme.min.css' %}"> <!--Slider homepage page-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"> <!--Slider homepage page-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!--Slider homepage page-->
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>  <!--Slider homepage page-->
+
+
+<article>
+<section>
+<div class ="wrapper">
+		<div class = "slider-area">
+
+
+			<div class = "card"><h2>Spend money on memorable emotions</h2></div>
+			<div class = "card1"><h2>Save time with the Shocard</h2></div>
+			<div class = "card2"><h2>Get the kick out tourist system</h2></div>
+
+</div>
+</div>
+</section>
+
+<section>
+	<div class ="slid2">
+<div class="images glide">
+	<div class="glide__track" data-glide-el="track">
+					<div class="glide__slides">
+							{%for sight in object_list %}
+						<div class="glide__slide">
+
+							<img src ="{{sight.img.url}}"  alt = "{{sight.name_sight}}">
+						<a href="{{sight.get_absolute_url}}" class ="title">{{sight.name_sight}}</a>
+						</div>
+
+	{% endfor %}
+
+	</div>
+	</div>
+
+
+
+
+<div class="glide__arrows" data-glide-el="controls">
+	<button class ="glide__arrow glide__arrow--left" data-glide-dir="<"><i class = "fas fa-arrow-left"></i></button>
+		<button class ="glide__arrow glide__arrow--right" data-glide-dir=">"><i class = "fas fa-arrow-right"></i></button>
+</div>
+</div>
+</div>
+
+
+</section>
+
+
+</article>
+<!--/////
 <h2><span class="subtitle">Enjoy your trip</span></h2>
      <p class="description">Get access to 80+ Kharkiv attractions including thematic excursion. Huge Saving vs. gate prices.</p>
 
@@ -31,6 +85,38 @@
 
 
        </div>
+////////-->
+<script>
+
+	new Glide(".images", {
+			type: 'carousel',
+			perView: 2,
+			focusAt: 'center',
+			rewind: true,
+breakpoints :{
+	 650: {
+		perView: 1
+}
+}
+	}).mount();
 
 
+ $(function(){
+	 $('.slider-area').bxSlider({
+		 mode:'fade',
+		 speed:4000,
+		 pause:6000,
+		  auto:true,
+		 pager: false,
+		 controls: false,
+		 touchEnabled: true
+
+	 });
+ });
+
+
+
+	  </script>
+		<script src="{% static 'js/jquery.bxslider.js' %}"></script>
+		<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
 {% endblock %}
