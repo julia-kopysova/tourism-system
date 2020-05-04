@@ -42,7 +42,8 @@ class Cart(object):
                               #'price': str(item.type_ticket.price),
                               'name_person':str(item.name_person),
                               'surname_person': str(item.surname_person),
-                              'date_start': str(item.date_start)}
+                              'date_start': str(item.date_start),
+    }
         self.save()
 
     def save(self):

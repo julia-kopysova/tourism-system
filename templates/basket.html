@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Basket{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/basket.css' %}">  <!--basket page-->
+ <link rel="stylesheet" href="{% static 'css/buy1.css' %}">
+<article>
+  {% if cart.empty == True %}
+<div class="empty_cart">  <h1 class="empty-h">Your basket is empty</h1></div>
+  {% else %}
+<div class="basket">
+
+	<h1>Your basket</h1>
+	<div class="tickets">
+
+{% for item in cart %}
+	    <a href="{% url 'remove' item.id %}"><div class = "close"><img src="{% static 'images/close1.png' %}"  height="40"></div></a>
+		<div class="ticket" >
+			<div class = "ticket__infor">
+			<div class = "logo__image"><img src="{% static 'images/logo-dark.png' %}" class = "logo__kharkiv" width= "100" alt="Логотип"/></div>
+			<div class = "name_info">{{item.type}}</div></div>
+		<div class = "information">
+			<div class = "person__information">
+				<div class = "person__name__information">Name:</div>
+				<div class = "name">{{item.name_person}}</div>
+				<div class = "person__surname__information">Surname:</div>
+				<div class = "surname">{{item.surname_person}}</div>
+			</div>
+	<div class = "img__kharkiv"><img src ="{% static 'images/kharkivmappink.png' %}" width="130" height="130" class = "img__kharkiv_map"    alt = "1"></div>
+	<div class = "date__information">
+		<div class = "date__start__information">Date start:</div>
+		<div class = "start__date">{{item.date_start}}</div>
+		<div class = "date__finish__information">Days:</div>
+		<div class = "finish__date">{{item.days}}</div>
+	</div>
+	</div>
+	<hr/>
+	<div class = "num">
+<div class = "price__tickets">Price:</div>⠀<div class="price__ticket">{{item.price}}</div>
+</div>
+</div>
+
+{% endfor %}
+</div>
+</div>
+
+
+
+<div class = "buttons">
+<a class="gradient-btn_Basket"  href="{% url 'checkout' %}">Payment</a>
+<a class="gradient_btn_Basket"  href="{% url 'checkout' %}">Payment</a>
+
+<a class="gradient-btn_Basket"  href="">Delete all</a>
+<a class="gradient_btn_Basket"  href="">Delete all</a>
+
+<a class="gradient-btn_Basket"  href="{% url 'prices' %}">Back</a>
+<a class="gradient_btn_Basket"  href="{% url 'prices' %}">Back</a>
+
+<a class="gradient-btn_Basket"  href="{% url 'faq' %}">Ask a quetion</a>
+<a class="gradient_btn_Basket"  href="{% url 'faq' %}">Ask quetion</a>
+
+
+</div>
+{% endif %}
+</article>
+
+{% endblock %}

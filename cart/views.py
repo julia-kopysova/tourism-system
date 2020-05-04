@@ -47,10 +47,10 @@ def cart_add(request, pk):
     else:
         logging.info('Else')
         form = CartAddItemForm(request.POST)
-    return redirect('account')
+    return redirect('cart')
 
 def cart_remove(request, pk):
     cart = Cart(request)
     item = get_object_or_404(Item, pk=pk)
     cart.remove(item)
-    return redirect('account')
+    return redirect('cart')
