@@ -59,7 +59,9 @@ def own_account(request):
     d2 = datetime.datetime(user.date_joined.year,user.date_joined.month,user.date_joined.day,user.date_joined.hour,user.date_joined.minute,user.date_joined.second)
     days_in_system = (d1 - d2).days
     #days_in_system = (timezone.now - user.date_joined).days
-    tickets = []
+    tickets_active = []
+    ticket_history = []
+    #now = datetime.date.now()
     try:
         logging.info(orders_filter)
         #ordersget = Order.objects.get(user = user, paid = 'True')
@@ -68,13 +70,20 @@ def own_account(request):
             for one in all_tickets_in_one_order:
                 logging.info(one.id)
                 one_ticket = Item.objects.get(id = one.id)
-                tickets.append(one_ticket)
+                if d1 > datetime.datetime(one_ticket.date_finish.year,one_ticket.date_finish.month,one_ticket.date_finish.day) :
+                    ticket_history.append(one_ticket)
+                else:
+                    tickets_active.append(one_ticket)
     except Order.DoesNotExist:
         orders_filter = None
-    count = len(tickets)
-    logging.info(tickets)
+    if not ticket_history:
+        ticket_history = -1
+        count = len(tickets_active)
+    else:
+        count = len(ticket_history)+ len(tickets_active)
+    #logging.info(tickets)
     #logging.info(ordersget)
-    return render(request,'account.html', {'cart': cart, 'tickets':tickets, 'count_cards':count, 'days_in_system':days_in_system})
+    return render(request,'account.html', {'cart': cart, 'tickets':tickets_active, 'ticket_history': ticket_history, 'count_cards':count, 'days_in_system':days_in_system})
 
 def signup(response):
     if response.method == "POST":

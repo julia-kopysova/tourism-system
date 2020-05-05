@@ -9,7 +9,9 @@
   flex-wrap: wrap;
 
 }
-
+.section_tickets{
+  margin-left: 50px;
+}
 .article_account{
   width: 70%;
   height: 100%;
@@ -506,6 +508,7 @@ px) and (min-width: 700px)
 .using_ticket{
   width: 100%;
 }
+
   .gradient_btn_account{
    display:inline;
     width: 100px;

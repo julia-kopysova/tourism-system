@@ -5,30 +5,60 @@
 
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/style_signup.css' %} ">
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
 
-<div class="container1">
-  <div class="frame">
-    <div class="nav1">
-      <ul class="links">
-        <li class="signup-active"><a class="butn">Edit</a></li>
-      </ul>
-    </div>
-
-				        <form class="form-signup" action="" method="post" name="form">
-                    {% csrf_token %}
-          {{ form.as_p }}
-            {{ profile_form.as_p }}
-            <button  type="submit" class="butn-signup">Submit</button>
-
-          </div>
-
-
-				        </form>
-      <div class="frame-end"><a class="login" href = "{% url 'change_password' %}">Change Password</a></div>
+<div class="framesignup">
+  <div class="nav1">
+    <ul class"links">
+      <li class="signup-active"><a class="butn">Edit</a></li>
+    </ul>
   </div>
+				        <form class="form-signup" action="" method="post" name="form">
+                  {% if form.errors %}
+              {{form.errors}}
+              {% endif %}
+                {% csrf_token %}
+                <div class="part1">
 
-</div>
+                          <div class="username">
+                            <label for="username">Username:</label>
+                            <input type="text"  value="{{user.username}}" name="username"  maxlength="20" autofocus required class="form-styling form-styling-username">
+                          </div>
+                          <div class="email">
+                            <label for="email">Email:</label>
+                            <input type="email" value="{{user.email}}" name="email" maxlength="150" required class=" form-styling form-styling-email">
+                          </div>
+                </div>
+
+                <div class="part2">
+
+                          <div class="first_name">
+                            <label for="first_name">First name:</label>
+                            <input type="text" value="{{user.first_name}}" name="first_name" maxlength="100" required class="form-styling form-styling-part2">
+                          </div>
+                          <div class="last_name">
+                            <label for="last_name">Last name:</label>
+                            <input type="text" value="{{user.last_name}}" name="last_name" maxlength="100" required class="form-styling form-styling-part2">
+                          </div>
+                          <div class="gender">
+                            <label for="gender">Gender:</label>
+                            <select value="{{user.genser}}" name="gender" required class="form-styling form-styling-part2 ">
+                              <option value="Female">Female</option>
+                              <option value="Male">Male</option>
+                          </select>
+                        </div>
+                </div>
+
+
+
+                          <div class="butn-animate">
+                              <button  type="submit" class="butn-signup">Confirm</button>
+                          </div>
+                <div class="frame-end"><a class="forget" href = "/accounts/password_reset/">Forgot your password? |</a>
+                            <a class="forget2" href = "/accounts/password_reset/">Forgot password? |</a>
+                          <a class="login" href = "{% url 'change_password' %}">Change Password</a></div>
+                          </form>
+
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 {% endblock %}

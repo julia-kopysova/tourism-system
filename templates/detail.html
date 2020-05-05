@@ -7,33 +7,24 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
-<div class="center">
-<div class="ticket" height = "200" width="10" >
-<div class = "name_info">{{ object.type }}</div>
-{% if object.days is 1 %}
-<div class="day"> {{object.days}} Day</div>
-{% else %}
-<div class="day"> {{object.days}} Days</div>
-{% endif %}
-<div class = "price"> {{ object.price }} ₴</div>
-<div class = "description">Fill in the information about the person who will use this card when visiting attractions.</div>
+<link rel="stylesheet" type="text/css" href="{% static 'css/buy1.css' %}">
+<div class="information__block">Confirm</div>
+<div class="basket-form">
+<div class="description">
+	<p>Indicate the name and surname of the person who will use this ticket. To determine the end date of a ticket, simply add the number of days indicated on the card to your start date.</p>
+</div>
 
 
-<div >
-<form class = "form" action="{% url 'add' object.id %}" method="post">
+<form class = "basket-form-part2" action="{% url 'add' object.id %}" method="post">
   {% csrf_token %}
 
-  <label for="id_name_person"></label>
-  <input class="form-styling"  type="text" name="name_person"  maxlength="2000" required id="id_name_person" placeholder="Name person">
+  <input class="form-styling"  type="text" name="name_person"  maxlength="2000" required id="id_name_person" placeholder="First name" class="form-styling form-styling-lf-name">
+  <input class="form-styling"  type="text" name="surname_person"  maxlength="2000"  id="id_surname_person"  placeholder="Last name" required class="form-styling form-styling-lf-name">
+  <label for="id_birth_date_month">Date start:</label>
+  <div class="birth_date">
 
-  <label for="id_surname_person"></label>
-  <input class="form-styling"  type="text" name="surname_person"  maxlength="2000" required id="id_surname_person"  placeholder="Surname person">
-<br>
-  <label  class="day" for="id_date_start_month">Date start:</label>
-  <div class="date_start">
-
-            <select class="select" name="date_start_month" required id="id_date_start_month">
-              <option hidden value="">Month</option>
+           <select class="form-styling form-styling-date" name="date_start_month" required id="id_date_start_month">
+           <option hidden value="">Month</option>
            <option value="1">January</option>
            <option value="2">February</option>
            <option value="3">March</option>
@@ -46,7 +37,7 @@
            <option value="10">October</option>
            <option value="11">November</option>
            <option value="12">December</option></select>
-          <select class="select" name="date_start_day" class = "select" id="id_date_start_day">
+          <select  name="date_start_day" required  class="form-styling form-styling-date" id="id_date_start_day">
             <option hidden value="">Day</option>
            <option value="1">1</option>
            <option value="2">2</option>
@@ -80,17 +71,40 @@
            <option value="30">30</option>
            <option value="31">31</option>
           </select>
-          <select class="select" name="date_start_year"  id="id_date_start_year" >
+          <select  name="date_start_year" required class="form-styling form-styling-date" id="id_date_start_year" >
             <option hidden value="">Year</option>
            <option value="2020">2020</option>
            <option value="2021">2021</option>
            <option value="2022">2022</option>
           </select>
           </div>
-  <input class="form-styling-submit" type="submit" value="Add to cart">
+          <div class = "buy">
+						<input class="gradient-btn_form"  type="submit" value="Add to basket"/>
+						<input  class="gradient_btn_form"  type="submit" value="Add to basket" />
+            </div>
   </form>
+  <div class="information__ticket">
+
+  					<div class="ticket__inform">
+  						<div class="type__ticket__inform">Type:</div>
+  					<div class="days__ticket__inform">Days:</div>
+  					<div class="price__ticket__inform">Price:</div>
+  						</div>
+
+  						<div class="ticket__inform__value">
+
+  							<div class="type__ticket"> {{ object.type }}	</div>
+
+                {% if object.days is 1 %}
+                <div class="days__ticket"> {{object.days}} Day</div>
+                {% else %}
+                <div class="days__ticket"> {{object.days}} Days</div>
+                {% endif %}
+  						<div class="price__ticket">{{ object.price }} $	</div>
+  								</div>
+  					</div>
+
   </div>
-</div>
-</div>
+
 
 {% endblock %}

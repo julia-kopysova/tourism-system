@@ -7,7 +7,107 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}"> <!-- account page-->
 <link rel="stylesheet" href="{% static 'css/buy1.css' %}"> <!-- account page-->
-{% if user.is_authenticated %}
+
+<article>
+<div class = "main__greeting">
+<section>
+<div class = "greeting"><h2>Hello, {{ user.first_name }}!</h2><br/>
+	<p>This is your account. Here you can issue tickets, view and change information about yourself, see the number of tickets purchased, and so on.</p>
+</div>
+<section class="section_tickets">
+
+
+<div class="tickets owl-carousel">
+  {% for ticket in tickets %}
+
+	<div class="ticket" >
+			<div class = "ticket__infor">
+			<div class = "logo__image"><img src="{% static 'images/logo-dark.png' %}" class = "logo__kharkiv" width= "100" alt="Логотип"/></div>
+			<div class = "name_info">{{ticket.type_ticket.type}}</div></div>
+		<div class = "information">
+			<div class = "person__information">
+				<div class = "person__name__information">Name:</div>
+				<div class = "name">{{ticket.name_person}}</div>
+				<div class = "person__surname__information">Surname:</div>
+				<div class = "surname">{{ticket.surname_person}}</div>
+			</div>
+	<div class = "img__kharkiv"><img src ="{% static 'images/kharkivmappink.png' %}"  width="130" height="130" class = "img__kharkiv_map"    alt = "1"></div>
+	<div class = "date__information">
+		<div class = "date__start__information">Date start:</div>
+		<div class = "start__date">{{ticket.date_start}}</div>
+		<div class = "date__finish__information">Date finish:</div>
+		<div class = "finish__date">{{ticket.date_finish}}</div>
+	</div>
+	</div>
+	<hr/>
+	<div class = "num">
+<div class = "number__tickets">Numder:</div>⠀<div class="number__ticket">{{ticket.id}}</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</section>
+</section>
+
+<aside>
+<div class = "account" >
+{% if user.profile.gender == 'Male' %}	<img src ="{% static 'images/boy.png' %}" alt = "1">
+{% else %}<img src ="{% static 'images/girl2.png' %}"  alt = "1">
+{% endif %}
+		<div class = "name__account surname__account" >{{ user.first_name }} {{ user.last_name }}</div>
+		<div class="username__account">@{{ user.username }}	</div>
+<div class="infor__account">
+		<div class="birthday__account">
+	<img src ="{% static 'images/cake.png' %}" class="image__cake" width = "40" height = "40" alt = "1">
+	<p>{{ user.profile.birth_date }}</p></div>
+	<div class="email__account"><img src ="{% static 'images/mail.png' %}" class="image__email" width = "40" height = "30" alt = "1"><p>{{ user.email }}<p></div>
+</div>
+<div class="main__date">
+	<div class = "numeral"><p class = "active__numeral">Cards in cart</p><p class="account__active__card">{{cart.amount}}</p></div>
+	<div class = "numeral"><p class = "active__numeral">Buy card</p><p class = "account__buy__ticket">{{count_cards}}</p></div>
+		<div class = "numeral"><p class = "active__numeral">Day on system</p><p class = "account__date">{{days_in_system}}</p></div>
+	</div>
+	<div class = "buy">
+	<a class="gradient-btn_account"  href="{% url 'edit_account' %}">Edit</a>
+		<a class="gradient_btn_account"  href="{% url 'edit_account' %}">Edit</a>
+	<a class="gradient-btn_account" href="{% url 'review' %}">Review</a>
+		<a class="gradient_btn_account" href="{% url 'review' %}">Review</a>
+</div>
+</div>
+</aside>
+
+</div>
+<div class = "sect__history">
+<section>
+	<div class="history">
+      {% if ticket_history is not -1 %}
+		<h2>History</h2>
+		<div class="history__list">
+      {% for t_history in ticket_history %}
+<div class="money__history">
+			<img src ="{% static 'images/money.png' %}" width = "60" height = "60" alt = "1" class = "image__history">
+		<div class = "history__information">
+			<div class = "name_info_history">{{t_history.type_ticket.type}}
+			<div class = "name__history surname__history">{{t_history.name_person}} {{t_history.surname_person}}</div></div>
+			<div class = "finish__date">{{t_history.date_finish}}</div>
+		</div>
+</div>
+{% endfor %}
+
+	</div>
+  {%endif%}
+</div>
+</section>
+
+
+
+</div>
+
+
+</article>
+<!--{% if user.is_authenticated %}
+
+
 <div class = "all">
     <div class ="aside_account">
 
@@ -114,5 +214,20 @@
 </div>
 {% else %}
   <h2>Please, Log In</h2>
-{% endif %}
+{% endif %}-->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+	<script>
+
+	function viewDiv(){
+	  document.getElementById("text__history").style.display = "flex";
+	};
+
+	  </script>
 {% endblock %}
