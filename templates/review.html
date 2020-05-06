@@ -6,12 +6,25 @@
 
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}"> <!-- account page-->
+<link rel="stylesheet" href="{% static 'css/buy1.css' %}"> <!-- account page-->
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
 <div class="center">
 <article class="ticket">
 
-
-<form class = "form" action="" method="post">
+  <form id ="text__history" action="" method="post">
+  	  {% csrf_token %}
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+      <h3>Write more about your impression</h3>
+  		<input type="text" name="title" value="" required  id="id_title" maxlength="30"  placeholder="Title">
+  		<textarea name="message" cols="40" rows="5" required id="id_text" maxlength="150" placeholder="Review..."></textarea>
+      <input type="submit" value= "Send">
+    </div>
+  </form>
+<!--<form class = "form" action="" method="post">
   {% csrf_token %}
 <label class="label-text" for="id_title">Were you satisfied with the result?</label>
 <input class="form-styling" type="text" name="title" value="" maxlength="40" required id="id_title" placeholder="Your impression">
@@ -19,9 +32,11 @@
 <textarea class="form-styling-text" name="text" cols="40" rows="10" maxlength="200" required id="id_text" >
 </textarea>
   <input class="form-styling-submit" type="submit" value= "Send">
-</form>
+</form>-->
 </article>
 </div>
+
+
 
 
 {% endblock content %}

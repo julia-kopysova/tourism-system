@@ -40,6 +40,8 @@ class PricesView(ListView):
     queryset = Type.objects.all()
     def get_context_data(self, **kwargs):
         context = super(PricesView, self).get_context_data(**kwargs)
+        context['list_vip'] = Type.objects.filter(type = 'VIP')
+        context['list_lite'] = Type.objects.filter(type = 'Lite')
         context['reviews_list'] = Review.objects.all()
         context['count'] = len(Review.objects.all())
         return context
