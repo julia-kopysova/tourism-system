@@ -54,3 +54,8 @@ def cart_remove(request, pk):
     item = get_object_or_404(Item, pk=pk)
     cart.remove(item)
     return redirect('cart')
+
+def delete_all_cart(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect('cart')

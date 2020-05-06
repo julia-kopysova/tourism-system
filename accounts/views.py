@@ -45,6 +45,7 @@ def write_review(response):
         form = WriteReviewForm()
     return render(response, 'review.html', {'form': form})
 
+
 def cart_display(request):
     cart = Cart(request)
     return render(request,'basket.html', {'cart': cart})

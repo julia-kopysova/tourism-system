@@ -24,7 +24,7 @@ class EditAccountForm(UserChangeForm):
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ["gender", "birth_date"]
+        fields = ["gender"]
 
 class ProfileForm(forms.Form):
     gender = forms.CharField(max_length=6)

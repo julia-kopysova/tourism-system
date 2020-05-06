@@ -18,6 +18,7 @@ urlpatterns = [
     path('payment-done/', views_checkout.payment_done, name='payment_done'),
     path('payment-cancelled/', views_checkout.payment_canceled, name='payment_cancelled'),
     path('remove/<pk>', views_cart.cart_remove, name='remove'),
+    path('delete_all/', views_cart.delete_all_cart, name='delete_all'),
     path('guidebook/', v.GuidebookView.as_view(), name='guidebook'),
     path('cart/', v_a.cart_display, name='cart'),
     path('faq/', v.feedback, name='faq'),

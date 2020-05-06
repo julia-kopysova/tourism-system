@@ -8,13 +8,7 @@
 overflow-y: hidden;
 
 }
-.empty_cart{
-margin: 50px;
-height: 400px;
-}
-.empty-h{
-  margin-top:100px;
-}
+
 :root{
 --pink-color: #be9a9a;
 --light-green: #5f746f;
@@ -27,6 +21,38 @@ article{
   top: 0;
 }
 
+.empty_cart{
+margin: 50px;
+height: 400px;
+  text-align: center;
+}
+.empty-h{
+  margin-top:100px;
+
+}
+
+.total__price{
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  width: 90%;
+  margin: 60px 0px 60px 0px;
+  border-top: 4px outset  var(--dark--green);
+  padding: 20px;
+}
+
+.infor__value__price{
+  color: var(--pink-color);
+}
+
+
+.infor__value__price{
+  font-size: 50px;
+}
+
+.infor__price{
+  font-size: 50px;
+}
 .close{
   display: flex;
   justify-content: flex-end;
@@ -115,13 +141,10 @@ display: none;
 }
 
 .buttons{
-
   position: fixed;
-
   left: 77%;
-
-bottom: 15%;
-
+  bottom: 10%;
+  top:30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -139,6 +162,17 @@ bottom: 15%;
   display: none;
 }
 
+
+.infor__value__price{
+  font-size: 25px;
+}
+
+.infor__price{
+  font-size: 25px;
+}
+
+
+
 .basket{
 
   background: none;
@@ -151,7 +185,6 @@ bottom: 15%;
   position: static;
  flex-direction: row;
 flex-wrap: wrap;}
-
 
 article{
   display: flex;
@@ -234,6 +267,25 @@ margin: 0px 0px 3px 0px;
 .gradient-btn_Basket{
   display: none;
 }
+
+
+.total__price{
+
+  border-top: 4px outset  var(--light-green);
+
+}
+
+
+
+
+.infor__value__price{
+  font-size: 35px;
+}
+
+.infor__price{
+  font-size: 35px;
+}
+
 
 .basket{
 
