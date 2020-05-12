@@ -29,7 +29,9 @@
           			<a href="{% url 'prices' %}" class="nav-link">Prices</a>
           			<a href="{% url 'guidebook' %}" class="nav-link">Guidebook</a>
           			<a href="{% url 'faq' %}" class="nav-link">FAQ</a>
+                {% if user.is_authenticated %}
           			<a href="{% url 'cart' %}" class="nav-link bag">Basket</a>
+                {% endif %}
           		</nav>
           </div>
           	<div class="icon-menu">
@@ -62,7 +64,9 @@
 			<a href="{% url 'prices' %}" class="nav-link">Prices</a>
 			<a href="{% url 'guidebook' %}" class="nav-link">Guidebook</a>
 			<a href="{% url 'faq' %}" class="nav-link">FAQ</a>
+      {% if user.is_authenticated %}
 			<a href="{% url 'cart' %}" class="nav-link">Basket</a>
+      {% endif %}
       {% if user.is_authenticated %}
       <a href="{% url 'logout' %}" class="nav-link">Log Out</a>
       {% else %}

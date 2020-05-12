@@ -54,6 +54,15 @@ class GuidebookView(ListView):
     model = Sight
     template_name = "sight_list.html"
 
+class Howitworks(ListView):
+    model = Review
+    template_name = "howitworks.html"
+    def get_context_data(self, **kwargs):
+        context = super(Howitworks, self).get_context_data(**kwargs)
+        context['count'] = len(Review.objects.all())
+        return context
+
+
 class PricesDetail(FormMixin, DetailView):
     model = Type
     form_class = CartAddItemForm

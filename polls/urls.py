@@ -9,7 +9,7 @@ from accounts import views as v_a
 urlpatterns = [
     path('', v.HomeView.as_view(), name='home'),
     path('sight/<slug>/', v.SightDatailView.as_view(), name ='sight'),
-    path('howitworks/', TemplateView.as_view(template_name='howitworks.html'), name='howitworks'),
+    path('howitworks/', v.Howitworks.as_view(), name='howitworks'),
     path('prices/', v.PricesView.as_view(), name='prices'),
     path('ticket/<pk>/', v.PricesDetail.as_view(), name='ticket'),
     path('add/<pk>', views_cart.cart_add, name='add'),

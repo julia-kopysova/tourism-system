@@ -6,7 +6,7 @@
 
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/review.css' %}">
+<link rel="stylesheet" href="{% static 'css/write_review.css' %}">
 
 <article>
 
@@ -18,7 +18,7 @@
     <div class="form-inner">
       <h3>Write more about your impression</h3>
   		<input type="text" name="title" value=""  maxlength="40" required id="id_title" placeholder="Title">
-  		<textarea name="text" cols="40" rows="10" maxlength="200" required id="id_text" placeholder="Review..."></textarea>
+  		<textarea name="text" cols="40" rows="4" maxlength="200" required id="id_text" placeholder="Review..."></textarea>
     <input type="submit" value= "Send">
   </form>
   <!--<form class = "form" action="" method="post">

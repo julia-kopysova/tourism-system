@@ -1,12 +1,14 @@
-
-#text__review {
+.text__review {
   position: relative;
-  max-width: 400px;
+  max-width: 700px;
   margin: 50px auto 0;
   background: white;
   border-radius: 30px;
 }
-
+article{
+  margin-bottom: 100px;
+  margin-top: 150px;
+}
 .form-left-decoration,
 .form-right-decoration {
   content: "";
@@ -86,12 +88,3 @@
   font-weight: 500;
   font-size: 20px;
   color: #707981;
-}
-
-@media screen and (max-width: 550px) and (min-width: 100px)
-{
-  .form-inner{
-    padding: 30px;
-  
-  }
-}
