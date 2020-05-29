@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Sight, Type, Item, Review
+from .models import Sight, Type, Item, Review, Questions
 from django.views.generic import ListView,DetailView
 from cart.forms import CartAddItemForm
 from django import forms
@@ -100,4 +100,8 @@ def feedback(request):
             return redirect('faq')
     else:
         form = FeedbackForm()
-    return render(request, 'faq.html', {'form': form})
+    quetions_attrac= Questions.objects.filter(field='Attraction')
+    quetions_money= Questions.objects.filter(field='Money')
+    quetions_trans= Questions.objects.filter(field='Transport')
+    quetions_iden= Questions.objects.filter(field='Identification')
+    return render(request, 'faq.html', {'form': form, 'attraction':quetions_attrac, 'money':quetions_money, 'ideti':quetions_iden, 'transport':quetions_trans })

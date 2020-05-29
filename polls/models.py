@@ -30,6 +30,18 @@ TYPE_CHOICES = (
     ('Lite', 'Lite')
 )
 
+
+class Questions(models.Model):
+    FIELD_CHOICES = (
+        ('Identification', 'Identification'),
+        ('Transport', 'Transport'),
+        ('Money', 'Money'),
+        ('Attraction', 'Attraction'),
+    )
+    question = models.CharField(max_length=100)
+    answer =  models.CharField(max_length=500)
+    field = models.CharField(choices=FIELD_CHOICES, max_length=14)
+
 class Feedback(models.Model):
     name = models.CharField(max_length=200, help_text="Name of the sender")
     email = models.EmailField(max_length=200)

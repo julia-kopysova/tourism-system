@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sight, Type, Item, Review, Order,Profile, Feedback
+from .models import Sight, Type, Item, Review, Order,Profile, Feedback, Questions
 # Register your models here.
 
 class OrderAdmin(admin.ModelAdmin):
@@ -13,6 +13,7 @@ class FeedbackAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Sight)
+admin.site.register(Questions)
 admin.site.register(Profile)
 admin.site.register(Type)
 admin.site.register(Item)

@@ -5,8 +5,116 @@
 {% block title %}FAQ{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/style_faq.css' %}" /> <!-- string FAQ-->
-{% if messages %}
+<link rel="stylesheet" href="{% static 'css/faq.css' %}" />
+<link rel="stylesheet" href="{% static 'css/faq__quetion.css' %}" />
+
+<h1 class = "main__title">Main quetions</h1>
+<article class="main__quetions">
+
+<div class="list__quetions">
+
+
+<button class = "menu__quetions">
+
+<div class="transpot__quetions"><img src="{% static 'images/transport.jpg' %}" alt="bus" class= "img__quetions__transport"></div></button>
+<div class="content">
+{%for one in transport %}
+<p class = "panel"><details><summary>{{one.question}}</summary><br><div class = "detail">{{one.answer}}</div></details><hr></p>
+{% endfor %}
+</div>
+
+</div>
+
+
+
+
+<div class="list__quetions">
+
+
+<button class = "menu__quetions">
+
+<div class="attractions__quetions"><img src="{% static 'images/money_faq.jpg' %}" alt="atract" class= "img__quetions__money"></div></button>
+<div class="content">
+	{%for one in attraction %}
+	<p class = "panel"><details><summary>{{one.question}}</summary><br><div class = "detail">{{one.answer}}</div></details><hr></p>
+	{% endfor %}
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="list__quetions">
+
+
+<button class = "menu__quetions">
+
+<div class="money__quetions"><img src="{% static 'images/person.jpg' %}" alt="money" class= "img__quetions__person"></div></button>
+<div class="content">
+	{%for one in money %}
+	<p class = "panel"><details><summary>{{one.question}}</summary><br><div class = "detail">{{one.answer}}</div></details><hr></p>
+	{% endfor %}
+</div>
+</div>
+
+
+<div class="list__quetions">
+
+
+<button class = "menu__quetions">
+
+<div class="personaly__quetions"><img src="{% static 'images/attract.jpg' %}" alt="person" class= "img__quetions__attract"></div></button>
+<div class="content">
+	{%for one in ideti %}
+	<p class = "panel"><details><summary>{{one.question}}</summary><br><div class = "detail">{{one.answer}}</div></details><hr></p>
+	{% endfor %}
+</div>
+</div>
+
+
+</article>
+
+
+<div class="faq__quetions">
+
+
+<div class="faq__quetion">
+
+	<form id ="text__quetion" action="" method="post">
+		 {% csrf_token %}
+	  <div class="form-left-decoration"></div>
+	  <div class="form-right-decoration"></div>
+	  <div class="circle"></div>
+	  <div class="form-inner">
+	    <h3>Write your quetion here</h3>
+			<input type="text" name="name" maxlength="30" required id="id_name" placeholder="Name" >
+			<input type="text" name="email" maxlength="35" required id="id_email" placeholder="Email" >
+			<input type="text" name="subject" maxlength="35" required id="id_subject" placeholder="Subject" >
+			<textarea name="message" cols="40" rows="4" required id="id_message" maxlength="150" placeholder="Quetion..."></textarea>
+	    <input type="submit" value= "Send">
+	  </div>
+	</form>
+
+	{% if messages %}
+		 <ul>
+				 {% for message in messages %}
+				 <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+				 {% endfor %}
+		 </ul>
+		 {% endif %}
+</div>
+
+<div  class = "description__faq">
+<h1>Need Some Help?</h1></a>
+	<p >View all frequently asked questions and if you can't find the answer, we’re here to help. Chat with us online or send us an email.</p>
+
+</div>
+</div>
+
+<!--{% if messages %}
 	 <ul>
 			 {% for message in messages %}
 			 <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
@@ -28,55 +136,6 @@
 							 </tr>
 					 </table>
 			 </form>
-
-<div class = "main_FAQ">
-
-<div class = "article_FAQ">
-
-	<div class="image1_FAQ">
-	<img src="{% static 'images/dergprom.jpg' %}" alt="" >
-	<img src="{% static 'images/red.png' %}" alt="" class="description_image1_FAQ">
-	<h2>FAQ</h2>
-	</div>
-
-		 <div class="quetion_FAQ">
-        <h2><span class="main__quetion_FAQ">Frequently Asked Questions</span></h2>
-		 <div><p class="main__description_FAQ"><a href="" class="btn-slide">Benefits</a></p>
-       <div class = "panel"><details><summary >What are the main benefits of The Shocard?</summary><br><div class = "detail">You get the opportunity to visit all Kharkiv attractions at affordable prices, paying for the purchase only once.</div></details><hr></div>
-   		<div class = "panel"><details><summary >Does The Shocard come with a guidebook?</summary><br><div class = "detail">In the description of each attraction there is an address with a link to Google Map.</div></details><hr></div>
-   		<div class = "panel"><details><summary >How much can we save thanks to Shocard?</summary><br><div class = "detail">It depends on the number of days and places visited.</div></details><hr></div>
-   		</div>
-
-		 <div ><p class="main__description_FAQ"><a href="" class="Savings">Savings</a></p>
-       <div class = "panel1"><details><summary>How can I find out how much credit I have left on my Shocard?</summary><br><div class = "detail">If you wish to confirm the outstanding credit on your London Pass then you should call our customer service team on +380 500 424 767.</div></details><hr></div>
-   		</div>
-
-			 <div ><p class="main__description_FAQ"><a href="" class="Attractions">Attractions</a></p>
-         <div class = "panel2"><details><summary>Does the pass include all of Kharkiv`s attractions?</summary><br><div class = "detail">The Shocard features over 80 top attractions. Check out our complete list of top Shocard attractions you can access with a Shocard Pass.</div></details><hr></div>
-     		<div class = "panel2"><details><summary>Are the attractions accessible all year round?</summary><br><div class = "detail">The majority of attractions included on Shocard are open all year round with just a few days of closure, usually around Christmas.</div></details><hr></div>
-     		<div class = "panel2"><details><summary>Can i visit the same attraction twice with my Shocard?</summary><br><div class = "detail">You can only visit each attraction included on the Shocard once. Repeat entry is not allowed.</div></details><hr></div>
-     		</div>
-
-		<div ><p class="main__description_FAQ"><a href="" class="Transport">Transport</a></p>
-      <div class = "panel3"><details><summary>Can I buy the Shocard with travel anywhere?</summary><br><div class = "detail">No, the Shocard with Travel can only be purchased online in advance.</div></details><hr></div>
-    			</div>
-
-    <div ><p class="main__description_FAQ"><a href="" class="Validity">Validity</a></p>
-      <div class = "panel4"><details><summary>How does The Shocard work?</summary><br><div class = "detail">Show Shocard at the entrance or ticket office of any attraction included, they will scan the card and give you entrance at no further cost. Show your card and head straight inside - it's as easy as that!</div></details><hr></div>
-  		<div class = "panel4"><details><summary>What happens if I change the date of my trip to Kharkiv?</summary><br><div class = "detail">Your Shocard (as well as your email confirmation voucher if you planned to collect your order in Kharkiv) is valid for one year from the date of purchase.</div></details><hr></div>
-  		</div>
-
-    <div ><p class="main__description_FAQ"><a href="" class="Purchase">Purchase</a></p>
-      <div class = "panel5"><details><summary>How much does The Shocard cost?</summary><br><div class = "detail">The cost of a Shocard varies depending on the duration, pass type.</div></details><hr></div>
-  		<div class = "panel5"><details><summary>Can I buy The Shocard for a group?</summary><br><div class = "detail">We don't have any restrictions when purchasing through the website, however, the Shocard is not designed for large groups of travellers.</div></details><hr></div>
-  		<div class = "panel5"><details><summary>Why haven't I received my email confirmation?</summary><br><div class = "detail">Your email confirmation should normally arrive in your inbox a few minutes after completing a transaction/purchase. If you haven't received an email confirmation then we recommend you check your spam filter or junk folder.</div></details><hr></div>
-  			</div>
-
-    <div ><p class="main__description_FAQ"><a href="" class="Contact">Contact</a></p>
-      <div class = "panel6"><details><summary>How do I contact the Shocard by telephone?</summary><br><div class = "detail">From within the Ukraine call us on 380 050 042 46</div></details><hr></div>
-  			</div>
-</div>
-</div>
-<div class = "aside_FAQ">
-</div>
+-->
+	<script src="{% static 'js/quetions__faq.js' %}"></script>
 {% endblock %}
