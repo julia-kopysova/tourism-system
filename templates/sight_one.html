@@ -5,9 +5,42 @@
 {% block title %}Sight_Detail{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/sight.css' %}" />
-<link rel="stylesheet" href="{% static 'css/sight_one.css' %}" />
-<div class="block1">
+<link rel="stylesheet" href="{% static 'css/more_button_sight.css' %}" />
+<link rel="stylesheet" href="{% static 'css/attractions.css' %}" />
+
+<article>
+
+
+
+
+<section class = "part1">
+	<div class="info__attractions">
+	<div class="attractions__image"><img src="{{sight.img.url}}" height="" alt="Erm" class="photo__attractions" /></div>
+	<div class="information"><h2>{{ object.name_sight }}</h2>
+		<p>{{ object.description }}</p>
+	<a href="{{ object.link }}">	<div class="button__more"><button id ="btnMore" >Visit website</button></div> </a>
+	</div>
+		</div>
+</section>
+
+<section class = "part2">
+	<div class="more__information">
+		<h2>— What we know</h2>
+		<div class="attractions__more">
+<div class="what__khow"><img src="{% static 'images/data.png' %}" height="130" width= "130" alt="Erm" class="what__khow" /> <p>This attraction was opened in </p>
+	<div class = "numeral"><div class="data__norm">{{ object.year }} <div class="data__active">year</div></div></div></div>
+<div class="what__khow"><img src="{% static 'images/adress.png' %}" height="130" width= "130" alt="Erm" class="what__khow" /> <p>You can find it in </p>
+<div class = "numeral"><div class="data__norm">{{ object.address }}<div class="data__active"></div></div></div></div>
+<div class="what__khow"><img src="{% static 'images/time.png' %}" height="130" width= "130" alt="Erm" class="what__khow" /> <p>You could have paid  </p>
+<div class = "numeral"><div class="data__norm"><div class="data__active">UAH</div></div></div> </div>
+<div class="what__khow"><img src="{% static 'images/savemoney.png' %}" height="130" width= "130" alt="Erm" class="what__khow" /> <p>You should spend here </p>
+<div class = "numeral"><div class="data__norm">48 <div class="data__active"> minutes</div></div></div>  </div>
+		</div>
+	</div>
+</section>
+
+</article>
+<!--<div class="block1">
 <div class="sight_one"><h1>{{ object.name_sight }}</h1></div>
 	<img class="image_sight"  width="500" height="300"  src="{{sight.img.url}}"/>
 	</div>
@@ -21,7 +54,7 @@
 
 		<div class = "description2">
 		{{ object.description }}</div>
-		</div>
+		</div> -->
 
 
 
