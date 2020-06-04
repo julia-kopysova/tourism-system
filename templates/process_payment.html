@@ -4,10 +4,10 @@
 {% block title %}Make Payment{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/payment.css' %}">
+<link rel="stylesheet" href="{% static 'css/paypal.css' %}">
 <section class="payment">
     <h4>Pay with PayPal</h4>
-  <div>  {{ form.render }} </div>
+  <div class="pay">  {{ form.render }} </div>
 
 </section>
 {% endblock %}

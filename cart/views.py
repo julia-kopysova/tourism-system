@@ -35,8 +35,13 @@ def cart_add(request, pk):
         logging.info(form)
         cd = form.cleaned_data
         logging.info(form)
+        times = 20
+        if type.type == 'VIP':
+            times = 999
+        elif type.type == 'Lite' and type.days == 7:
+            times = 40
         finish = cd['date_start'] + timedelta(days = type.days)
-        item = Item(type_ticket = type, name_person = cd['name_person'], surname_person = cd['surname_person'], date_start = cd['date_start'], date_finish = finish)
+        item = Item(type_ticket = type, name_person = cd['name_person'], surname_person = cd['surname_person'], date_start = cd['date_start'], date_finish = finish, visited_times = times)
         logging.info(item.type_ticket)
         logging.info(item.name_person)
         logging.info(item.surname_person)

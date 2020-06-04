@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from polls.models import Order
+from polls.models import Order, Item
 from paypal.standard.ipn.signals import valid_ipn_received
 from django.dispatch import receiver
 
@@ -15,3 +15,6 @@ def payment_notification(sender, **kwargs):
             # mark the order as paid
             order.paid = True
             order.save()
+            for item in order.items.all():
+                item.paid = True
+                item.save()

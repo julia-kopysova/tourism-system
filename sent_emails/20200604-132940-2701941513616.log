@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: posvistak@gmail.com
+Date: Thu, 04 Jun 2020 10:29:40 -0000
+Message-ID: <159126658046.14556.7091084622851772897@DESKTOP-41E9SHO>
+
+Someone asked for password reset for email posvistak@gmail.com. Follow the link below:
+http://127.0.0.1:8000/accounts/reset/MTQ/5h2-90c2d38bc089bcdef5bf/
+
+-------------------------------------------------------------------------------

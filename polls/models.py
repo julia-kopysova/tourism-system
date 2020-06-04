@@ -19,7 +19,8 @@ class Sight(models.Model):
     address = models.CharField(max_length=100)
     link = models.URLField()
     slug = models.SlugField()
-
+    minutes_needs = models.PositiveIntegerField(default=60)
+    normal_price = models.PositiveIntegerField(default=0)
     def get_absolute_url(self):
         return reverse("sight", kwargs = {
         'slug': self.slug
@@ -71,6 +72,8 @@ class Item(models.Model):
     surname_person = models.CharField(max_length=20)
     date_start = models.DateField()
     date_finish = models.DateField(blank=True)
+    visited_times = models.PositiveIntegerField(default=0)
+    paid = models.BooleanField(default=False)
 
 class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)

@@ -65,7 +65,7 @@ def process_payment(request):
 
 @csrf_exempt
 def payment_done(request):
-    return render(request, 'payment_done.html')
+    return redirect('account')
 
 
 @csrf_exempt
