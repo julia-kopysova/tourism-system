@@ -70,8 +70,10 @@
 	<div class = "buy">
 	<a class="gradient-btn_account"  href="{% url 'edit_account' %}">Edit</a>
 		<a class="gradient_btn_account"  href="{% url 'edit_account' %}">Edit</a>
+		{% if count_cards is not 0 %}
 	<a class="gradient-btn_account" href="{% url 'review' %}">Review</a>
 		<a class="gradient_btn_account" href="{% url 'review' %}">Review</a>
+		{% endif %}
 </div>
 </div>
 </aside>
