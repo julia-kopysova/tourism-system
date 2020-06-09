@@ -25,7 +25,7 @@ SECRET_KEY = 'ej+^!h2lw=ra23jcb_ov-u)qg0xc60*a7u8g078klr-hi)!(mc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec92c8398681.ngrok.io']
+#ALLOWED_HOSTS = ['ec92c8398681.ngrok.io']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'paypal.standard.ipn',
     'checkout.apps.CheckoutConfig',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -116,6 +117,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+CRONJOBS = [
+    ('0 0 * * 0', 'polls.cron.delete_extra_items') #At 00:00 on Sunday
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
