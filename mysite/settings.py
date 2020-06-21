@@ -118,9 +118,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-CRONJOBS = [
-    ('0 0 * * 0', 'polls.cron.delete_extra_items') #At 00:00 on Sunday
-]
+#CRONJOBS = [
+    #('0 0 * * 0', 'polls.cron.delete_extra_items') #At 00:00 on Sunday
+#]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
